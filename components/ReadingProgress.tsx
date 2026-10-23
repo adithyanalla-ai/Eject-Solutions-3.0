@@ -24,7 +24,7 @@ export default function ReadingProgress() {
   if (!active) return null;
   return (
     <div aria-hidden="true" className="fixed inset-x-0 top-0 z-50 h-1">
-      <div ref={bar} className="h-full origin-left" style={{ transform: "scaleX(0)", background: "linear-gradient(90deg,#2563eb,#06b6d4)" }} />
+      <div ref={bar} className="h-full origin-left" style={{ transform: "scaleX(0)", background: "linear-gradient(90deg,#facc15,#eab308)" }} />
     </div>
   );
 }

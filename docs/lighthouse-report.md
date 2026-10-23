@@ -2,11 +2,11 @@
 
 Run date: 23 Oct 2026. Lighthouse (mobile emulation, simulated slow-4G + 4x CPU throttle) against a **production build served locally** (`next build && next start`) in a shared cloud sandbox. Raw numbers: `docs/lighthouse-summary.json`. Re-run with `npm run lighthouse`.
 
-## Scores (mobile), final design (light skeuomorphism + frosted glass)
+## Scores (mobile), final design (yellow / white / black, light skeuomorphism + frosted glass)
 
 | Page | Performance | Accessibility | Best Practices | SEO | LCP | CLS | TBT |
 |---|---|---|---|---|---|---|---|
-| Home `/` | 94 to 98 (3 runs) | 100 | 100 | 100 | 2.2 to 2.3 s | 0 | 120 to 230 ms |
+| Home `/` | 95 to 98 (3 runs; one cold-start outlier at 84) | 100 | 100 | 100 | 2.2 to 2.3 s | 0 | 120 to 230 ms |
 | Service `/services/vapt-penetration-testing` | 98 | 100 | 100 | 100 | 2.3 s | 0 | 110 ms |
 | Blog post `/blog/vapt-services-hyderabad-what-to-expect` | 96 | 100 | 100 | 100 | 2.4 s | 0 | 150 ms |
 | Contact `/contact` | 99 | 100 | 100 | 100 | 2.1 s | 0 | 70 ms |
@@ -39,8 +39,8 @@ Levers if you need more headroom: remove the third orb, drop `backdrop-filter` f
 Automated: Lighthouse (axe-core based) scores 100 on all four pages. Not automated, verified by design or by `scripts/smoke.mjs`:
 
 - **Keyboard:** skip link, visible 3 px focus ring, native `<details>` mobile menu and FAQ, native `<dialog>` command palette with focus trap and Esc, arrow-key navigation inside the palette.
-- **Contrast on frosted panels:** text is slate `#0F172A` (primary) and `#475569` (secondary). Worst-case panel colour is the glass (55% white) over the lavender orb ≈ `#E4DDFE`: secondary text 5.7:1, link blue `#1D4ED8` 5.5:1, both above 4.5:1. Cyan `#06B6D4` is **decorative only** (gauge arc, glow) because it fails 3:1 as small text on white. Primary button text is white over a `#2563EB → #0E7490` gradient (≥ 5.2:1 at both ends). This deviates slightly from the brief's `#2563EB → #06B6D4` gradient, because white text on `#06B6D4` is only 2.4:1. Re-check with a contrast tool if you change orb colours.
-- **Focus:** 2 px cyan-600 (`#0891B2`, 3.7:1 on white) outline with 3 px offset on every interactive element; `#22D3EE` in Frosted Night. Clickability is never shadow-only: links are coloured/underlined and buttons carry text and icons.
+- **Contrast (yellow / white / black palette):** ink is black `#0A0A0A` (secondary `#52525B`, 7.6:1 on white) on white and warm-white panels. **Yellow `#FACC15` is never used as small text on a light surface** (1.6:1); on light it appears only as fills, the highlighter marker behind headings, chips and the glossy button, always carrying black text (≈ 13:1). In Frosted Night (black theme) yellow is used as text on near-black (≈ 12:1) and white text on `#080808` is 19:1. The 55% white glass over the pale-yellow orb stays above 4.5:1 for both text colours. Re-check with a contrast tool if you change the orb colours.
+- **Focus:** 2 px black outline with 3 px offset (yellow `#FACC15` in Frosted Night) on every interactive element. Clickability is never shadow-only: links are underlined (yellow underline, black text), buttons carry text and icons.
 - **Targets:** buttons and inputs have a 44 px minimum height (WCAG 2.2 target size).
 - **Motion:** `prefers-reduced-motion` disables orb drift, gauge needle, counters, cursor sheen and reveal transitions (verified in `scripts/smoke.mjs`).
 - **No-JS:** content is visible without JavaScript; reveal hiding only applies after the inline script adds `html.js`; counters server-render final values.

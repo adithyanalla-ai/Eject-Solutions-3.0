@@ -25,9 +25,9 @@ export default function HeroConsole({ items }: { items: Headline[] }) {
     >
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-1.5" aria-hidden="true">
-          <span className="h-3 w-3 rounded-full bg-[#ff6b6b] shadow-[inset_0_1px_1px_rgba(255,255,255,.5)]" />
-          <span className="h-3 w-3 rounded-full bg-[#fbbf24] shadow-[inset_0_1px_1px_rgba(255,255,255,.5)]" />
-          <span className="h-3 w-3 rounded-full bg-[#34d399] shadow-[inset_0_1px_1px_rgba(255,255,255,.5)]" />
+          <span className="h-3 w-3 rounded-full bg-[#0a0a0a] shadow-[inset_0_1px_1px_rgba(255,255,255,.5)]" />
+          <span className="h-3 w-3 rounded-full bg-[#facc15] shadow-[inset_0_1px_1px_rgba(255,255,255,.5)]" />
+          <span className="h-3 w-3 rounded-full bg-white ring-1 ring-black/40 shadow-[inset_0_1px_1px_rgba(255,255,255,.5)]" />
         </div>
         <h2 id="console-h" className="font-mono text-xs uppercase tracking-[0.16em] text-muted">latest / news</h2>
         <Link href="/news" className="font-mono text-xs text-primary underline underline-offset-4">all</Link>
@@ -37,10 +37,10 @@ export default function HeroConsole({ items }: { items: Headline[] }) {
           <li key={h.href}>
             <Link
               href={h.href}
-              className={`block rounded-2xl p-3 transition-[box-shadow,transform] duration-200 ${idx === i ? "bg-white/50 shadow-[inset_2px_2px_6px_rgba(15,23,42,.10),inset_-2px_-2px_6px_rgba(255,255,255,.9)] dark:bg-white/5 dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,.4)]" : "hover:bg-white/30 dark:hover:bg-white/5"}`}
+              className={`block rounded-2xl p-3 transition-[box-shadow,transform] duration-200 ${idx === i ? "bg-[#fff6c2]/80 shadow-[inset_2px_2px_6px_rgba(10,10,10,.10),inset_-2px_-2px_6px_rgba(255,255,255,.9)] dark:bg-[#facc15]/10 dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,.4)]" : "hover:bg-white/30 dark:hover:bg-white/5"}`}
             >
               <span className="flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-wider text-primary">
-                <span className={`h-1.5 w-1.5 rounded-full ${idx === i ? "bg-[#06b6d4]" : "bg-muted/50"}`} />{h.category}
+                <span className={`h-1.5 w-1.5 rounded-full ${idx === i ? "bg-[#facc15] ring-1 ring-black/50" : "bg-muted/50"}`} />{h.category}
                 <span className="text-muted normal-case tracking-normal">{h.date}</span>
               </span>
               <span className="mt-1 block font-display text-[1.02rem] leading-snug">{h.title}</span>

@@ -12,7 +12,7 @@ export default function NavLinks({ items, mobile = false }: { items: { href: str
           <Link
             href={n.href}
             aria-current={active(n.href) ? "page" : undefined}
-            className={mobile ? "block rounded-xl px-3 py-3 hover:bg-primary/10 aria-[current=page]:bg-primary/10 aria-[current=page]:font-medium" : "nav-link"}
+            className={mobile ? "block rounded-xl px-3 py-3 hover:bg-[#facc15]/25 aria-[current=page]:bg-[#facc15]/40 aria-[current=page]:font-medium" : "nav-link"}
           >
             {n.label}
           </Link>

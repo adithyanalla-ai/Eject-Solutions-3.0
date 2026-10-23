@@ -10,12 +10,12 @@ export function Logo() {
     <Link href="/" className="flex items-center gap-2.5 font-display text-xl font-bold tracking-tight" aria-label="Eject Solutions home">
       <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
         <defs>
-          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#22d3ee" /><stop offset="1" stopColor="#8b5cf6" /></linearGradient>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#ffe566" /><stop offset="1" stopColor="#eab308" /></linearGradient>
         </defs>
         <rect width="32" height="32" rx="9" fill="url(#lg)" />
-        <path d="M9 11h14M9 16h9M9 21h14" stroke="#050914" strokeWidth="2.6" strokeLinecap="round" />
+        <path d="M9 11h14M9 16h9M9 21h14" stroke="#0a0a0a" strokeWidth="2.6" strokeLinecap="round" />
       </svg>
-      <span>Eject<span className="text-primary">.</span></span>
+      <span>Eject<span className="rounded-sm bg-[#facc15] px-[3px] ml-px text-[#0a0a0a]">.</span></span>
     </Link>
   );
 }

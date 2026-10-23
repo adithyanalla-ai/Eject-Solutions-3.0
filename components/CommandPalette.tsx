@@ -83,7 +83,7 @@ export default function CommandPalette({ signal }: { signal: number }) {
             aria-selected={i === active}
             onMouseEnter={() => setActive(i)}
             onClick={() => go(r.u)}
-            className={`cursor-pointer rounded-lg px-3 py-2.5 ${i === active ? "bg-primary/10 shadow-[inset_2px_2px_6px_rgba(15,23,42,.10)] outline outline-1 outline-primary/40" : ""}`}
+            className={`cursor-pointer rounded-lg px-3 py-2.5 ${i === active ? "bg-[#facc15]/30 shadow-[inset_2px_2px_6px_rgba(10,10,10,.10)] outline outline-1 outline-black/40 dark:outline-[#facc15]/60" : ""}`}
           >
             <div className="flex items-baseline justify-between gap-3">
               <span className="font-medium">{r.t}</span>

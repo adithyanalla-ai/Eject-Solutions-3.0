@@ -27,7 +27,7 @@ export default function Gauge({ value, max, label, caption }: { value: number; m
     <figure className="text-center">
       <svg ref={ref} viewBox="0 0 200 118" width="220" height="130" role="img" aria-label={`${label}: ${value} of ${max}. ${caption}`} className="mx-auto h-auto w-full max-w-[240px]">
         <defs>
-          <linearGradient id="g-arc" x1="0" x2="1"><stop offset="0" stopColor="#2563eb" /><stop offset="1" stopColor="#06b6d4" /></linearGradient>
+          <linearGradient id="g-arc" x1="0" x2="1"><stop offset="0" stopColor="#facc15" /><stop offset="1" stopColor="#eab308" /></linearGradient>
           <linearGradient id="g-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#fff" stopOpacity=".55" /><stop offset=".55" stopColor="#fff" stopOpacity=".08" /><stop offset="1" stopColor="#fff" stopOpacity="0" /></linearGradient>
         </defs>
         <path d={arc} fill="none" stroke="rgb(var(--line))" strokeOpacity=".7" strokeWidth="16" strokeLinecap="round" />
@@ -40,7 +40,7 @@ export default function Gauge({ value, max, label, caption }: { value: number; m
           <line x1="100" y1="100" x2="100" y2="38" stroke="rgb(var(--fg))" strokeWidth="3" strokeLinecap="round" />
         </g>
         <circle cx="100" cy="100" r="9" fill="rgb(var(--surface))" stroke="rgb(var(--line))" strokeWidth="2" />
-        <circle cx="100" cy="100" r="3" fill="rgb(var(--primary))" />
+        <circle cx="100" cy="100" r="3" fill="#facc15" />
         {/* glass cover reflection */}
         <path d="M 14 100 A 86 86 0 0 1 186 100 L 186 60 Q 100 20 14 60 Z" fill="url(#g-glass)" opacity=".7" />
       </svg>
