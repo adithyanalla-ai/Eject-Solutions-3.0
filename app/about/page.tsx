@@ -40,14 +40,14 @@ export default function About() {
           <h2 id="princ" className="text-2xl sm:text-3xl mb-6">How we work</h2>
           <div className="grid gap-5 md:grid-cols-2">
             {principles.map((p) => (
-              <div key={p.h} className="glass p-6 reveal"><h3 className="text-xl">{p.h}</h3><p className="mt-2 text-muted">{p.p}</p></div>
+              <div key={p.h} className="panel p-6 reveal"><h3 className="text-xl">{p.h}</h3><p className="mt-2 text-muted">{p.p}</p></div>
             ))}
           </div>
         </section>
 
         <section className="mt-16" aria-labelledby="reg">
           <h2 id="reg" className="text-2xl sm:text-3xl mb-6">Company registration and contact</h2>
-          <dl className="glass grid gap-x-8 gap-y-4 p-6 sm:grid-cols-2">
+          <dl className="panel grid gap-x-8 gap-y-4 p-6 sm:grid-cols-2">
             <div><dt className="text-sm text-muted">Registered name</dt><dd className="font-medium">{site.legalName}</dd></div>
             <div><dt className="text-sm text-muted">Corporate Identity Number (CIN)</dt><dd className="font-mono">{site.cin}</dd></div>
             <div><dt className="text-sm text-muted">Office</dt><dd>{addressLine}</dd></div>
@@ -62,7 +62,7 @@ export default function About() {
           <h2 id="who" className="text-2xl sm:text-3xl mb-6">Who writes and reviews our content</h2>
           <ul className="grid gap-5 md:grid-cols-2">
             {authors.map((a) => (
-              <li key={a.slug} className="glass p-6">
+              <li key={a.slug} className="panel p-6">
                 <h3 className="text-xl"><Link className="hover:text-primary" href={`/authors/${a.slug}`}>{a.title}</Link></h3>
                 <p className="font-mono text-sm text-primary">{a.role}</p>
                 <p className="mt-2 text-muted">{a.description}</p>

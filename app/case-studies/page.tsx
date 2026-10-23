@@ -23,7 +23,7 @@ export default function CaseStudies() {
         <p className="mt-5 max-w-2xl text-lg text-muted">We publish a case study only with the client’s written approval and only with numbers we can back up. Until then, the entries below are labelled templates.</p>
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {list.map((c) => (
-            <article key={c.slug} className="glass glass-hover relative p-6">
+            <article key={c.slug} className="panel lift relative p-6">
               {c.placeholder && <p className="placeholder-flag inline-block">[[PLACEHOLDER: not a real project]]</p>}
               <h2 className="mt-3 text-2xl"><Link href={`/case-studies/${c.slug}`} className="after:absolute after:inset-0">{c.title}</Link></h2>
               <p className="mt-2 text-muted">{c.description}</p>

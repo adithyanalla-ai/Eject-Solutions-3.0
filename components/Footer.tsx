@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Header";
+import Icon from "./Icon";
 import NewsletterForm from "./NewsletterForm";
 import CookieSettings from "./CookieSettings";
 import { addressLine, site, whatsappHref } from "@/lib/site";
@@ -9,8 +10,9 @@ export default function Footer() {
   const svc = services();
   const ind = industries();
   return (
-    <footer className="mt-8 border-t border-line/60 bg-surface/40">
-      <div className="container-page py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+    <footer className="mt-8">
+      <hr className="emboss-rule mx-auto max-w-page" />
+      <div className="container-page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <Logo />
           <p className="mt-4 max-w-sm text-muted">Software, security and AI under one roof. Built in Hyderabad for teams in India and beyond.</p>
@@ -60,7 +62,17 @@ export default function Footer() {
           </div>
         </nav>
       </div>
-      <div className="border-t border-line/60 py-5 text-center text-sm text-muted">
+      <div className="container-page pb-10">
+        <div className="panel panel-lg lift grid items-center gap-6 p-6 md:grid-cols-[auto_1fr_auto]">
+          <span className="keycap !h-14 !w-14"><Icon name="pin" size={26} /></span>
+          <div>
+            <p className="font-display text-lg font-medium">Visit us in Kukatpally, Hyderabad</p>
+            <p className="text-muted">{addressLine}</p>
+          </div>
+          <a className="btn btn-ghost" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapsQuery)}`} target="_blank" rel="noopener noreferrer">Open in Google Maps <Icon name="arrow" size={16} /></a>
+        </div>
+      </div>
+      <div className="pb-24 text-center text-sm text-muted">
         © {new Date().getFullYear()} {site.legalName}. All rights reserved.
       </div>
     </footer>

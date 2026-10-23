@@ -10,7 +10,7 @@ export default function PaletteButton() {
       onClick={() => window.dispatchEvent(new Event("open-palette"))}
     >
       <Icon name="search" size={18} />
-      <kbd className="hidden lg:inline font-mono text-xs text-muted">Ctrl K</kbd>
+      <kbd className="hidden xl:inline font-mono text-xs text-muted">Ctrl K</kbd>
     </button>
   );
 }

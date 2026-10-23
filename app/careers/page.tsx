@@ -19,17 +19,17 @@ export default function Careers() {
         <p className="eyebrow">Careers &amp; talent</p>
         <h1 className="mt-3 text-4xl sm:text-5xl max-w-3xl">Build your career here, or hire through us</h1>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          <section className="glass p-6" aria-labelledby="c1">
+          <section className="panel p-6" aria-labelledby="c1">
             <h2 id="c1" className="text-xl">Work at Eject</h2>
             <p className="mt-2 text-muted">We hire engineers, security testers and AI practitioners who like owning problems end to end. Open roles are listed below as they open. <span className="placeholder-flag">[[CONFIRM: current openings]]</span></p>
             <p className="mt-4"><a className="text-primary underline underline-offset-4" href={`mailto:${site.email}?subject=Application`}>Send your CV and a few lines about what you have built</a></p>
           </section>
-          <section className="glass p-6" aria-labelledby="c2">
+          <section className="panel p-6" aria-labelledby="c2">
             <h2 id="c2" className="text-xl">Employers: hire talent</h2>
             <p className="mt-2 text-muted">Contract, contract-to-hire and permanent IT hiring in Hyderabad, with technical screening done by practitioners and AI used only to speed up admin.</p>
             <p className="mt-4"><Link className="text-primary underline underline-offset-4" href="/services/ai-recruitment-it-staffing">How our recruitment works</Link></p>
           </section>
-          <section className="glass p-6" aria-labelledby="c3">
+          <section className="panel p-6" aria-labelledby="c3">
             <h2 id="c3" className="text-xl">Candidates and students</h2>
             <p className="mt-2 text-muted">Looking for your next role or an internship with real projects? Our training and internship programme is built around shipped work, not slide decks.</p>
             <p className="mt-4"><Link className="text-primary underline underline-offset-4" href="/services/ai-upskilling-training-internships">AI upskilling and internships</Link></p>

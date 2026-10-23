@@ -25,7 +25,7 @@ export default function Contact() {
       <div className="mt-10 grid gap-10 lg:grid-cols-[1.3fr_1fr]">
         <ContactForm turnstileKey={site.turnstileSiteKey} />
         <div className="space-y-6">
-          <address className="glass p-6 not-italic space-y-3">
+          <address className="panel p-6 not-italic space-y-3">
             <p className="font-display text-lg font-medium">{site.legalName}</p>
             <p className="flex gap-3 text-muted"><Icon name="pin" className="mt-1 shrink-0 text-primary" /> {addressLine}</p>
             <p className="flex gap-3"><Icon name="mail" className="mt-1 shrink-0 text-primary" /> <a className="text-primary underline underline-offset-4" href={`mailto:${site.email}`}>{site.email}</a></p>
@@ -41,7 +41,7 @@ export default function Contact() {
             referrerPolicy="no-referrer-when-downgrade"
             width="600"
             height="320"
-            className="h-80 w-full rounded-2xl border border-line"
+            className="h-80 w-full rounded-3xl border border-white/70 shadow-[0_10px_30px_rgba(15,23,42,.08)]"
           />
         </div>
       </div>

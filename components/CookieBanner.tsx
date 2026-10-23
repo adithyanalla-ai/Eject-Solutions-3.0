@@ -39,7 +39,7 @@ export default function CookieBanner({ ga4 }: { ga4: string }) {
         </>
       )}
       {choice === null && (
-        <div role="dialog" aria-label="Cookie consent" className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-xl rounded-2xl border border-line bg-surface p-4 shadow-2xl sm:inset-x-auto sm:right-4 sm:bottom-4">
+        <div role="dialog" aria-label="Cookie consent" className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-xl frost !rounded-2xl p-4 sm:inset-x-auto sm:right-4 sm:bottom-4">
           <p className="text-sm text-fg/90">
             We use analytics cookies only if you agree, to see which pages help visitors. No ads, no selling data.{" "}
             <Link href="/privacy#cookies" className="text-primary underline underline-offset-4">Details</Link>

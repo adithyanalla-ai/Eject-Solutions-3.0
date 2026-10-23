@@ -16,7 +16,7 @@ const Table = (p: ComponentProps<"table">) => (
 );
 
 const Callout = ({ children, title }: { children: React.ReactNode; title?: string }) => (
-  <aside className="glass my-8 border-l-4 !border-l-primary p-5">
+  <aside className="panel my-8 border-l-4 !border-l-primary p-5">
     {title && <p className="font-display font-semibold mb-1">{title}</p>}
     <div className="[&>p]:my-2">{children}</div>
   </aside>

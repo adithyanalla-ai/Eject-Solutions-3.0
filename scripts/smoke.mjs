@@ -24,7 +24,8 @@ const check = (ok, msg) => { console.log(`${ok ? "✓" : "✗"} ${msg}`); if (!o
   // Palette + theme on desktop
   const page = await ctx.newPage();
   await page.setViewportSize({ width: 1280, height: 800 });
-  await page.goto(base + "/", { waitUntil: "networkidle" });
+  await page.goto(base + "/", { waitUntil: "load" });
+  await page.waitForTimeout(600);
   await page.keyboard.press("Control+k");
   await page.waitForSelector("dialog[open] input");
   await page.fill("dialog[open] input", "vapt");
@@ -32,9 +33,9 @@ const check = (ok, msg) => { console.log(`${ok ? "✓" : "✗"} ${msg}`); if (!o
   await page.keyboard.press("Enter");
   await page.waitForURL(/\/services\/vapt/, { timeout: 5000 }).then(() => check(true, "Ctrl+K palette navigates to VAPT page"), () => check(false, "palette navigation"));
   const before = await page.getAttribute("html", "data-theme");
-  await page.click('button[aria-label="Toggle light and dark theme"]');
+  await page.click('button[aria-label^="Toggle Frosted Night"]');
   const after = await page.getAttribute("html", "data-theme");
-  check(before === "dark" && after === "light", `theme toggle ${before} → ${after}`);
+  check(before === "light" && after === "dark", `theme toggle ${before} → ${after}`);
   await page.screenshot({ path: process.env.SHOT_DIR ? `${process.env.SHOT_DIR}/service-light.png` : "/dev/null" }).catch(() => {});
   await ctx.close();
 }
@@ -56,10 +57,11 @@ const check = (ok, msg) => { console.log(`${ok ? "✓" : "✗"} ${msg}`); if (!o
 {
   const ctx = await browser.newContext({ reducedMotion: "reduce" });
   const page = await ctx.newPage();
-  await page.goto(base + "/", { waitUntil: "networkidle" });
-  const anim = await page.$eval(".orbit-a", (e) => getComputedStyle(e).animationName);
+  await page.goto(base + "/", { waitUntil: "load" });
+  await page.waitForTimeout(600);
+  const anim = await page.$eval(".orb-1", (e) => getComputedStyle(e).animationName);
   const hidden = await page.$$eval(".reveal", (els) => els.filter((e) => getComputedStyle(e).opacity === "0").length);
-  check(anim === "none" && hidden === 0, `reduced motion: hero animation=${anim}, hidden reveals=${hidden}`);
+  check(anim === "none" && hidden === 0, `reduced motion: ambient orb animation=${anim}, hidden reveals=${hidden}`);
   await ctx.close();
 }
 await browser.close();

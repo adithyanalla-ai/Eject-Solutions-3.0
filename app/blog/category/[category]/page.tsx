@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import Link from "next/link";
 import PostCard from "@/components/PostCard";
 import Cta from "@/components/Cta";
 import { blogPosts } from "@/lib/content";
@@ -33,6 +34,10 @@ export default async function Category({ params }: { params: Promise<{ category:
     <>
       <div className="container-page pt-10">
         <Breadcrumbs items={[{ name: "Blog", path: "/blog" }, { name: c.name, path: `/blog/category/${key}` }]} />
+        <nav className="segmented mb-6" aria-label="Categories">
+          <Link href="/blog">All</Link>
+          {Object.entries(cats).map(([k, v]) => (<Link key={k} href={`/blog/category/${k}`} aria-current={k === key ? "true" : undefined}>{v.name}</Link>))}
+        </nav>
         <h1 className="text-4xl sm:text-5xl">{c.name} guides</h1>
         <p className="mt-4 max-w-2xl text-lg text-muted">{c.blurb}</p>
         {posts.length === 0 ? (

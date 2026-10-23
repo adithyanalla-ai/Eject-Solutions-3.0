@@ -36,7 +36,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <h2 id="ind-svc" className="text-2xl sm:text-3xl mb-5">Services we bring to {i.title.toLowerCase()}</h2>
           <ul className="grid gap-4 sm:grid-cols-2">
             {svcs.map((s) => (
-              <li key={s.slug} className="glass glass-hover p-5">
+              <li key={s.slug} className="panel lift p-5">
                 <Link href={`/services/${s.slug}`} className="font-display text-lg hover:text-primary">{s.title}</Link>
                 <p className="mt-1 text-sm text-muted">{s.short ?? s.description}</p>
               </li>

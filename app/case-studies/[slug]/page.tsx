@@ -24,7 +24,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       <div className="container-page pt-10">
         <Breadcrumbs items={[{ name: "Case studies", path: "/case-studies" }, { name: c.title, path: `/case-studies/${c.slug}` }]} />
         {c.placeholder && (
-          <p role="note" className="glass mb-6 p-4 border-amber-400/50">
+          <p role="note" className="panel mb-6 p-4 border-amber-400/50">
             <span className="placeholder-flag">[[PLACEHOLDER]]</span> This page is a layout template with invented structure only. It describes no real client or result and is excluded from search engines.
           </p>
         )}

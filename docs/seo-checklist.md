@@ -85,3 +85,9 @@ Find every unresolved marker: `grep -rn "CONFIRM\|PLACEHOLDER" app content lib d
 - Monthly: Search Console → Performance for queries ranking 8 to 20 → refresh those posts (set `updated:` in frontmatter so `lastmod` changes).
 - Quarterly: re-run `npm run lighthouse`, `scripts/audit-seo.mjs`, and review Core Web Vitals field data.
 - Keep the old-site claims out (**"120+ projects, 98% retention, 5+ years"**) until you can document them. When you can, add them in `app/page.tsx` (the `[[CONFIRM]]` comment marks the spot) and in Organization schema if appropriate.
+
+## 5. Trust elements waiting on your confirmation
+
+- `content/trust.json`: certification/partner pills on the home page render **only** when you add verified items (with a proof link). Empty today: `[[CONFIRM]]`.
+- `content/testimonials.json`: testimonial carousel renders only when real, permissioned quotes exist. Empty today: `[[CONFIRM]]`.
+- `app/page.tsx`: the stat strip shows only structural facts (9 service lines, 3 disciplines, 4 industries, 1 partner). Replace or extend with verified delivery metrics when documented.

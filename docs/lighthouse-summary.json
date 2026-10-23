@@ -2,56 +2,56 @@
   {
     "page": "/",
     "scores": {
-      "performance": 98,
+      "performance": 95,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
     },
-    "lcp": "2.2 s",
+    "lcp": "2.3 s",
     "cls": "0",
-    "tbt": "80 ms",
+    "tbt": "200 ms",
     "fcp": "1.1 s",
     "failing": []
   },
   {
     "page": "/services/vapt-penetration-testing",
     "scores": {
-      "performance": 99,
+      "performance": 97,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
     },
-    "lcp": "1.9 s",
+    "lcp": "2.2 s",
     "cls": "0",
-    "tbt": "110 ms",
+    "tbt": "130 ms",
     "fcp": "1.1 s",
     "failing": []
   },
   {
     "page": "/blog/vapt-services-hyderabad-what-to-expect",
     "scores": {
-      "performance": 98,
+      "performance": 97,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
     },
-    "lcp": "2.0 s",
+    "lcp": "2.4 s",
     "cls": "0",
-    "tbt": "100 ms",
+    "tbt": "110 ms",
     "fcp": "1.1 s",
     "failing": []
   },
   {
     "page": "/contact",
     "scores": {
-      "performance": 98,
+      "performance": 99,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
     },
-    "lcp": "2.0 s",
+    "lcp": "2.1 s",
     "cls": "0",
-    "tbt": "120 ms",
+    "tbt": "70 ms",
     "fcp": "1.1 s",
     "failing": []
   }

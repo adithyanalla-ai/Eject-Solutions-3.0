@@ -33,7 +33,7 @@ export default function NewsletterForm({ compact = false }: { compact?: boolean 
         <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden"><input name="website" tabIndex={-1} autoComplete="off" /></div>
         <button className="btn btn-primary" disabled={state.s === "sending"}>{state.s === "sending" ? "Subscribing…" : "Subscribe"}</button>
       </div>
-      {state.s === "error" && <p role="alert" className="mt-2 text-sm text-red-500">{state.m}</p>}
+      {state.s === "error" && <p role="alert" className="mt-2 text-sm text-red-700 dark:text-red-400">{state.m}</p>}
       <p className="mt-2 text-xs text-muted">One email per week at most. We ask you to confirm by email first. Unsubscribe any time.</p>
     </form>
   );

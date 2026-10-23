@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import Enhancements from "@/components/Enhancements";
 import LazyWidgets from "@/components/LazyWidgets";
 import WhatsAppFab from "@/components/WhatsAppFab";
+import BookFab from "@/components/BookFab";
+import ReadingProgress from "@/components/ReadingProgress";
 import { SITE_URL, site } from "@/lib/site";
 
 const display = localFont({
@@ -38,26 +40,29 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#050914" },
-    { media: "(prefers-color-scheme: light)", color: "#f7f9fc" },
+    { media: "(prefers-color-scheme: light)", color: "#eef2f7" },
+    { media: "(prefers-color-scheme: dark)", color: "#090d1a" },
   ],
   width: "device-width",
   initialScale: 1,
 };
 
-const themeScript = `(function(){var d=document.documentElement;try{var t=localStorage.getItem('theme');d.dataset.theme=t==='light'?'light':'dark'}catch(e){d.dataset.theme='dark'}d.classList.add('js')})()`;
+const themeScript = `(function(){var d=document.documentElement;try{var t=localStorage.getItem('theme');d.dataset.theme=t==='dark'?'dark':'light'}catch(e){d.dataset.theme='light'}d.classList.add('js')})()`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN" data-theme="dark" suppressHydrationWarning className={`${display.variable} ${mono.variable}`}>
+    <html lang="en-IN" data-theme="light" suppressHydrationWarning className={`${display.variable} ${mono.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
+        <div className="backdrop" aria-hidden="true"><span className="orb orb-1" /><span className="orb orb-2" /><span className="orb orb-3" /><span className="grain" /></div>
+        <ReadingProgress />
         <Header />
         <main id="main">{children}</main>
         <Footer />
         <WhatsAppFab />
+        <BookFab />
         <Enhancements />
         <LazyWidgets ga4={site.ga4} />
       </body>

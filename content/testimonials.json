@@ -1,0 +1,5 @@
+{
+  "_readme": "Real, written-permission testimonials only. The carousel is hidden when `items` is empty.",
+  "_confirm": "[[CONFIRM: add real testimonials: { \"quote\": \"…\", \"name\": \"…\", \"role\": \"…\", \"company\": \"…\" }]]",
+  "items": []
+}

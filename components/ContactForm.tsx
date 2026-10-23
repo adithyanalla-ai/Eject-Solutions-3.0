@@ -48,7 +48,7 @@ export default function ContactForm({ turnstileKey }: { turnstileKey: string }) 
 
   if (state.status === "ok") {
     return (
-      <div role="status" className="glass p-8">
+      <div role="status" className="panel p-8">
         <h2 className="text-2xl">Thanks, message received.</h2>
         <p className="mt-3 text-muted">We read every enquiry and reply within one working day. If it is urgent, message us on WhatsApp.</p>
       </div>
@@ -58,7 +58,7 @@ export default function ContactForm({ turnstileKey }: { turnstileKey: string }) 
   const err = (k: string) => state.errors?.[k];
 
   return (
-    <form onSubmit={onSubmit} noValidate className="glass p-6 sm:p-8 space-y-5" aria-describedby={state.status === "error" ? "form-error" : undefined}>
+    <form onSubmit={onSubmit} noValidate className="panel p-6 sm:p-8 space-y-5" aria-describedby={state.status === "error" ? "form-error" : undefined}>
       {turnstileKey && <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="lazyOnload" />}
       <div className="grid gap-5 sm:grid-cols-2">
         <Field id="name" label="Your name" error={err("name")}>
@@ -87,7 +87,7 @@ export default function ContactForm({ turnstileKey }: { turnstileKey: string }) 
       <p className="text-sm text-muted">
         By sending this you agree to us contacting you about your enquiry. See our <a className="text-primary underline underline-offset-4" href="/privacy">privacy policy</a>.
       </p>
-      {state.status === "error" && <p id="form-error" role="alert" className="text-red-500 font-medium">{state.message}</p>}
+      {state.status === "error" && <p id="form-error" role="alert" className="text-red-700 dark:text-red-400 font-medium">{state.message}</p>}
       <button type="submit" className="btn btn-primary" disabled={state.status === "sending"} data-track="cta_click" data-track-label="contact-submit">
         {state.status === "sending" ? "Sending…" : "Send message"}
       </button>
@@ -100,7 +100,7 @@ function Field({ id, label, error, children }: { id: string; label: string; erro
     <div>
       <label htmlFor={id} className="mb-1.5 block text-sm font-medium">{label}</label>
       {children}
-      {error && <p className="mt-1 text-sm text-red-500" role="alert">{error}</p>}
+      {error && <p className="mt-1 text-sm text-red-700 dark:text-red-400" role="alert">{error}</p>}
     </div>
   );
 }

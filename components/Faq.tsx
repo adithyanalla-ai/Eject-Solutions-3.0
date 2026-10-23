@@ -10,7 +10,7 @@ export default function Faq({ items, heading = "Frequently asked questions" }: {
       <h2 id="faq-h" className="text-2xl sm:text-3xl mb-6">{heading}</h2>
       <div className="space-y-3">
         {items.map((f) => (
-          <details key={f.q} className="glass group p-5 open:border-primary/50">
+          <details key={f.q} className="panel group p-5">
             <summary className="cursor-pointer list-none font-display text-lg font-medium flex justify-between gap-4">
               <span>{f.q}</span>
               <span aria-hidden="true" className="text-primary transition group-open:rotate-45 text-2xl leading-none">+</span>

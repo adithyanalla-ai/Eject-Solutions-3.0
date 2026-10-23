@@ -21,7 +21,7 @@ export default function IndustriesIndex() {
         <p className="mt-5 max-w-2xl text-lg text-muted">Hyderabad’s economy leans on software, pharma, financial services and global capability centres. These are the four areas we shape our delivery around.</p>
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {industries().map((i) => (
-            <article key={i.slug} className="glass glass-hover relative p-6 reveal">
+            <article key={i.slug} className="panel lift relative p-6 reveal">
               <h2 className="text-2xl"><Link href={`/industries/${i.slug}`} className="after:absolute after:inset-0">{i.title}</Link></h2>
               <p className="mt-3 text-muted">{i.description}</p>
             </article>

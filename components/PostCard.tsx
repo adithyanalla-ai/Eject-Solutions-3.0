@@ -3,20 +3,22 @@ import type { Entry } from "@/lib/content";
 import { fmtDate } from "@/lib/content";
 
 export default function PostCard({ post, kind }: { post: Entry; kind: "blog" | "news" }) {
+  const updated = post.updated && post.updated !== post.date ? post.updated : null;
   return (
-    <article className="glass glass-hover relative p-6 flex flex-col">
-      <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-wider text-primary">
-        <span>{post.category ?? (kind === "news" ? "News" : "Guide")}</span>
-        <span className="text-muted">·</span>
-        <time dateTime={post.date} className="text-muted normal-case tracking-normal">{fmtDate(post.date)}</time>
+    <article className="panel lift flex flex-col p-6">
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="chip">{post.category ?? (kind === "news" ? "News" : "Guide")}</span>
+        <span className="text-xs text-muted">{kind === "blog" ? `${post.minutes} min read` : "Short read"}</span>
       </div>
       <h3 className="mt-3 text-xl">
-        <Link href={`/${kind}/${post.slug}`} className="hover:text-primary after:absolute after:inset-0">
-          {post.title}
-        </Link>
+        <Link href={`/${kind}/${post.slug}`} className="after:absolute after:inset-0 after:rounded-2xl hover:text-primary">{post.title}</Link>
       </h3>
-      <p className="mt-2 text-muted text-[0.95rem] flex-1">{post.description}</p>
-      <p className="mt-4 text-sm text-muted">{kind === "blog" ? `${post.minutes} min read` : post.source ? `Source: ${post.source.name}` : ""}</p>
+      <p className="mt-2 flex-1 text-[0.95rem] text-muted">{post.description}</p>
+      <p className="mt-4 text-xs text-muted">
+        <time dateTime={post.date}>{fmtDate(post.date)}</time>
+        {updated && <> · Updated <time dateTime={updated}>{fmtDate(updated)}</time></>}
+        {kind === "news" && post.source ? <> · Source: {post.source.name}</> : null}
+      </p>
     </article>
   );
 }

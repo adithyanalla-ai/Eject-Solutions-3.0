@@ -54,7 +54,7 @@ export default function CommandPalette({ signal }: { signal: number }) {
     <dialog
       ref={ref}
       aria-label="Site search"
-      className="m-auto mt-[12vh] w-[min(92vw,38rem)] rounded-2xl border border-line bg-surface p-0 text-fg backdrop:bg-black/60"
+      className="frost m-auto mt-[12vh] w-[min(92vw,38rem)] !rounded-3xl p-0 text-fg backdrop:bg-slate-900/40"
       onClick={(e) => { if (e.target === ref.current) ref.current?.close(); }}
     >
       <div className="p-3 border-b border-line">
@@ -69,7 +69,7 @@ export default function CommandPalette({ signal }: { signal: number }) {
           aria-activedescendant={results[active] ? `pal-${active}` : undefined}
           aria-label="Search services, guides and news"
           placeholder="Search services, guides, news…"
-          className="w-full bg-transparent px-3 py-3 text-lg outline-none placeholder:text-muted"
+          className="input w-full text-lg"
         />
       </div>
       <ul id="palette-list" role="listbox" className="max-h-[50vh] overflow-y-auto p-2">
@@ -83,7 +83,7 @@ export default function CommandPalette({ signal }: { signal: number }) {
             aria-selected={i === active}
             onMouseEnter={() => setActive(i)}
             onClick={() => go(r.u)}
-            className={`cursor-pointer rounded-lg px-3 py-2.5 ${i === active ? "bg-primary/15 outline outline-1 outline-primary/50" : ""}`}
+            className={`cursor-pointer rounded-lg px-3 py-2.5 ${i === active ? "bg-primary/10 shadow-[inset_2px_2px_6px_rgba(15,23,42,.10)] outline outline-1 outline-primary/40" : ""}`}
           >
             <div className="flex items-baseline justify-between gap-3">
               <span className="font-medium">{r.t}</span>

@@ -62,7 +62,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <aside className="space-y-6 lg:sticky lg:top-24 self-start">
             <Toc items={p.toc} />
             {svcs.length > 0 && (
-              <div className="glass p-5 text-sm">
+              <div className="panel p-5 text-sm">
                 <p className="font-display font-medium mb-3">Related services</p>
                 <ul className="space-y-2">{svcs.map((s) => (<li key={s.slug}><Link className="text-primary hover:underline" href={`/services/${s.slug}`}>{s.title}</Link></li>))}</ul>
               </div>

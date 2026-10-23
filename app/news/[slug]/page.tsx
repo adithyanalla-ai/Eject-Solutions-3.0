@@ -45,7 +45,7 @@ export default async function NewsItem({ params }: { params: Promise<{ slug: str
           </header>
           <div className="mt-8"><Mdx source={n.body} /></div>
           {n.source && (
-            <aside className="glass mt-8 p-5" aria-label="Source">
+            <aside className="panel mt-8 p-5" aria-label="Source">
               <p className="font-mono text-xs uppercase tracking-wider text-primary">Source</p>
               <p className="mt-2">
                 Original reporting or document: <a href={n.source.url} target="_blank" rel="noopener noreferrer nofollow" className="text-primary underline underline-offset-4">{n.source.name}</a>.

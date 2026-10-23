@@ -53,7 +53,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <aside className="space-y-6 lg:sticky lg:top-24 self-start">
             <Toc items={s.toc} />
             {inds.length > 0 && (
-              <div className="glass p-5 text-sm">
+              <div className="panel p-5 text-sm">
                 <p className="font-display font-medium mb-3">Industries we apply this in</p>
                 <ul className="space-y-2">
                   {inds.map((i) => (<li key={i.slug}><Link className="text-primary hover:underline" href={`/industries/${i.slug}`}>{i.title}</Link></li>))}
@@ -75,8 +75,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <section className="mt-16" aria-labelledby="more-h">
           <h2 id="more-h" className="text-2xl mb-4">Other services</h2>
           <ul className="flex flex-wrap gap-2">
-            {others.map((o) => (<li key={o.slug}><Link href={`/services/${o.slug}`} className="rounded-full border border-line px-4 py-1.5 text-sm hover:border-primary hover:text-primary">{o.short ?? o.title}</Link></li>))}
-            <li><Link href="/services" className="rounded-full border border-line px-4 py-1.5 text-sm hover:border-primary hover:text-primary">All services →</Link></li>
+            {others.map((o) => (<li key={o.slug}><Link href={`/services/${o.slug}`} className="pill-link">{o.short ?? o.title}</Link></li>))}
+            <li><Link href="/services" className="pill-link">All services →</Link></li>
           </ul>
         </section>
       </div>

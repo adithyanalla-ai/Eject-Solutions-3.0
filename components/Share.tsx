@@ -13,7 +13,7 @@ export default function Share({ path, title }: { path: string; title: string }) 
     <div className="flex flex-wrap items-center gap-2 text-sm">
       <span className="text-muted">Share:</span>
       {links.map((l) => (
-        <a key={l.n} href={l.h} target="_blank" rel="noopener noreferrer" className="rounded-lg border border-line px-3 py-1.5 hover:border-primary hover:text-primary" aria-label={`Share on ${l.n}`}>{l.n}</a>
+        <a key={l.n} href={l.h} target="_blank" rel="noopener noreferrer" className="pill-link !px-3 !py-1" aria-label={`Share on ${l.n}`}>{l.n}</a>
       ))}
     </div>
   );

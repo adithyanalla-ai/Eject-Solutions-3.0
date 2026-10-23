@@ -26,13 +26,14 @@ export default function BlogIndex() {
         <p className="eyebrow">Guides</p>
         <h1 className="mt-3 text-4xl sm:text-5xl">Practical guides for builders and buyers</h1>
         <p className="mt-5 max-w-2xl text-lg text-muted">Evergreen explainers, written to be useful before you ever talk to us. Every guide shows who wrote it and when it was last reviewed.</p>
-        <ul className="mt-8 flex flex-wrap gap-2" aria-label="Categories">
-          {categories.map((c) => (<li key={c}><Link href={`/blog/category/${catSlug(c)}`} className="rounded-full border border-line px-4 py-1.5 text-sm hover:border-primary hover:text-primary">{c}</Link></li>))}
-        </ul>
+        <nav className="segmented mt-8" aria-label="Categories">
+          <Link href="/blog" aria-current="true">All</Link>
+          {categories.map((c) => (<Link key={c} href={`/blog/category/${catSlug(c)}`}>{c}</Link>))}
+        </nav>
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((p) => (<PostCard key={p.slug} post={p} kind="blog" />))}
         </div>
-        <div className="glass mt-14 p-8 grid gap-6 md:grid-cols-2 items-center">
+        <div className="panel mt-14 p-8 grid gap-6 md:grid-cols-2 items-center">
           <div><h2 className="text-2xl">New guides, in your inbox</h2><p className="mt-2 text-muted">Double opt-in digest. Unsubscribe any time.</p></div>
           <NewsletterForm />
         </div>

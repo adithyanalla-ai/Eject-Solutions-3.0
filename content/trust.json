@@ -1,0 +1,5 @@
+{
+  "_readme": "Frosted trust pills on the home page. Shown ONLY when `items` is non-empty. Add an item only after the claim is verified and you can link the evidence.",
+  "_confirm": "[[CONFIRM: certifications, partnerships and memberships, e.g. { \"label\": \"ISO 27001 certified\", \"href\": \"https://…proof\" }]]",
+  "items": []
+}

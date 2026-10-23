@@ -3,6 +3,7 @@ import { nav } from "@/lib/site";
 import ThemeToggle from "./ThemeToggle";
 import PaletteButton from "./PaletteButton";
 import Icon from "./Icon";
+import NavLinks from "./NavLinks";
 
 export function Logo() {
   return (
@@ -21,38 +22,26 @@ export function Logo() {
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-line/60 bg-bg/85 backdrop-blur">
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-50 focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-bg">
+    <header className="sticky top-3 z-40 px-3 sm:px-4" style={{ height: 64 }}>
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-50 focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-bg">
         Skip to content
       </a>
-      <div className="container-page flex h-16 items-center justify-between gap-4">
+      <div className="nav-pill frost mx-auto flex h-16 max-w-page items-center justify-between gap-3 !rounded-full px-4 sm:px-5">
         <Logo />
-        <nav aria-label="Primary" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
-            {nav.map((n) => (
-              <li key={n.href}>
-                <Link href={n.href} className="rounded-lg px-3 py-2 text-[0.95rem] text-muted hover:text-fg hover:bg-surface/70">{n.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className="flex items-center gap-2">
+        <nav aria-label="Primary" className="hidden lg:block"><NavLinks items={nav} /></nav>
+        <div className="flex items-center gap-2 sm:gap-3">
           <PaletteButton />
           <ThemeToggle />
           <Link href="/contact" className="btn btn-primary hidden sm:inline-flex" data-track="cta_click" data-track-label="header-book">Book a consultation</Link>
-          {/* No-JS mobile menu */}
-          <details className="relative lg:hidden group">
+          {/* No-JS frosted drawer */}
+          <details className="group lg:hidden">
             <summary className="btn btn-ghost !px-3 list-none cursor-pointer" aria-label="Menu">
               <Icon name="menu" className="group-open:hidden" />
               <Icon name="close" className="hidden group-open:inline" />
             </summary>
-            <nav aria-label="Mobile" className="glass absolute right-0 mt-2 w-64 p-2 !bg-surface">
-              <ul>
-                {nav.map((n) => (
-                  <li key={n.href}><Link href={n.href} className="block rounded-lg px-3 py-3 hover:bg-primary/10">{n.label}</Link></li>
-                ))}
-                <li><Link href="/contact" className="btn btn-primary mt-2 w-full" data-track="cta_click" data-track-label="mobile-menu-book">Book a consultation</Link></li>
-              </ul>
+            <nav aria-label="Mobile" className="frost absolute right-3 top-[72px] w-[min(18rem,calc(100vw-1.5rem))] p-2 !rounded-2xl">
+              <NavLinks items={nav} mobile />
+              <Link href="/contact" className="btn btn-primary mt-2 w-full" data-track="cta_click" data-track-label="mobile-menu-book">Book a consultation</Link>
             </nav>
           </details>
         </div>
