@@ -1,0 +1,50 @@
+{
+  "name": "eject-solutions-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Eject Solutions Pvt Ltd — website",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit",
+    "content:news": "node scripts/generate-drafts.mjs news",
+    "content:blog": "node scripts/generate-drafts.mjs blog",
+    "lighthouse": "node scripts/lighthouse.mjs",
+    "prebuild": "node scripts/check-content.mjs",
+    "check:content": "node scripts/check-content.mjs",
+    "covers": "node scripts/make-covers.mjs",
+    "calendar": "node scripts/render-calendar.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "github-slugger": "^2.0.0",
+    "gray-matter": "^4.0.3",
+    "next": "^15.5.28",
+    "next-mdx-remote": "^6.0.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.6.1",
+    "chrome-launcher": "^1.2.2",
+    "lighthouse": "^13.5.0",
+    "playwright-core": "^1.64.1",
+    "postcss": "^8.5.31",
+    "tailwindcss": "^3.4.19",
+    "typescript": "5.9"
+  }
+}

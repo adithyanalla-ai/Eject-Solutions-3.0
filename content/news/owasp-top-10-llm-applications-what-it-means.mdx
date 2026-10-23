@@ -1,0 +1,21 @@
+---
+title: "OWASP's LLM Top 10: A Testing Checklist for Indian Teams"
+description: "Why the OWASP Top 10 for LLM Applications is the practical baseline for testing chatbots and agents built by Indian product teams."
+date: 2026-10-22
+author: eject-editorial
+category: AI
+tags: ["LLM security", "OWASP", "prompt injection", "AI security"]
+services: ["ai-security-governance", "ai-agents-rag-assistants"]
+source:
+  name: "OWASP Gen AI Security Project: Top 10 for LLM Applications"
+  url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+---
+The OWASP Top 10 for LLM Applications is a community-maintained list of the most serious risks in software built on large language models, from prompt injection to sensitive information disclosure and excessive agency. It has become the shared vocabulary security teams use when they review chatbots, copilots and agents.
+
+**Why it matters for Indian businesses.** Many teams here are shipping their first customer-facing assistant under deadline, often on top of a hosted model and a document index. Customer security questionnaires from enterprise buyers are starting to ask how AI features are tested, and "we wrote a careful prompt" is not an answer. Mapping your tests to a recognised list gives you something concrete to show and a way to prioritise.
+
+**Our take.** Three entries deserve attention first for most teams. Prompt injection, especially indirect injection via documents or emails the assistant reads, is the entry point for most serious abuse. Sensitive information disclosure appears when indexes mix data of different sensitivity or users. Excessive agency is the multiplier: an assistant that can send emails or change records turns a clever input into a real incident.
+
+**What to do this week.** List every tool and data source your assistant can touch. Strip permissions it does not need. Require human approval for any irreversible action. Then write a dozen adversarial test prompts per entry and run them again after each change. If you want help, we run structured assessments under our [AI security and governance](/services/ai-security-governance) service.
+
+*This note summarises a publicly available reference in our own words. Read the original list at the source link below.*

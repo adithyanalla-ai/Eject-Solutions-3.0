@@ -1,0 +1,72 @@
+---
+title: "AI Agents & RAG Chatbot Development in India"
+description: "Knowledge assistants and workflow agents grounded in your documents and wired into your systems, with evaluation, guardrails and human oversight."
+short: "AI Agents & RAG"
+kicker: "Automate"
+icon: "bot"
+order: 3
+date: 2026-10-23
+updated: 2026-10-23
+keywords: ["AI development company Hyderabad", "AI agent development India", "RAG chatbot development", "enterprise knowledge assistant", "workflow automation"]
+faq:
+  - q: "What is a RAG chatbot?"
+    a: "Retrieval-augmented generation (RAG) lets a language model answer using your own documents. The system retrieves relevant passages from a searchable index and gives them to the model along with the question, so answers are grounded in your content and can cite sources instead of relying only on the model's training."
+  - q: "How is an AI agent different from a chatbot?"
+    a: "A chatbot answers questions. An agent can also take actions: look up an order, create a ticket, draft and send an email for approval, or update a CRM record. Because actions have consequences, agents need permissions, limits and human approval steps designed in."
+  - q: "Will our data be used to train public models?"
+    a: "Not by us. We design with providers and deployment options that do not train on your data, and we can use private cloud or self-hosted models when your data classification requires it. We document the data flow so your security team can review it."
+  - q: "How do you stop the assistant from making things up?"
+    a: "We ground answers in retrieved sources, require citations, set the assistant to decline when evidence is weak, and measure faithfulness on an evaluation set built from real questions. We never promise zero errors, so high-stakes answers get human review."
+  - q: "How long does a first version take?"
+    a: "A scoped knowledge assistant over a clean document set can reach a pilot in four to six weeks. Messy data, many integrations or strict access control extend that. Discovery gives you a firm estimate."
+  - q: "Can the assistant respect who is allowed to see which documents?"
+    a: "Yes. We carry document-level permissions into the index and filter retrieval by the signed-in user, so the assistant cannot surface a document the user could not open directly."
+---
+## The problem: AI demos that fall apart in production
+
+It is easy to build an impressive chatbot demo in a weekend. It is much harder to build one that gives correct answers on your real documents, respects who may see what, handles questions it should refuse, survives adversarial users and keeps working when the model or the data changes. Teams that skip the hard parts end up with an assistant nobody trusts, or worse, one that leaks something it should not.
+
+We build AI assistants and agents as software systems with testing, monitoring and security, not as prompts pasted into a model.
+
+## What we build
+
+**Knowledge assistants (RAG).** A chat or search interface over policies, product documentation, contracts, tickets, wikis or PDFs. Answers cite the passages they used so users can verify them.
+
+**Workflow agents.** Assistants that act: triage support emails and draft replies, extract data from invoices into your ERP, qualify inbound leads, prepare weekly reports, or route internal requests. Each action runs under explicit permissions with approval steps where risk is high.
+
+**Copilots inside your product.** Natural-language search, summarisation or guided workflows embedded in your existing application, built with the same engineering discipline as the rest of your codebase.
+
+## Our approach
+
+1. **Define the job and the failure modes.** We write down the questions or tasks, who asks, what a good answer looks like and what the assistant must refuse. This becomes the specification.
+2. **Prepare the knowledge.** Documents are cleaned, chunked sensibly, enriched with metadata and indexed with hybrid retrieval, combining keyword and semantic search, because pure vector search misses exact terms such as part numbers and clause references.
+3. **Build the evaluation set first.** We collect real questions, write reference answers and score retrieval quality, answer faithfulness and refusal behaviour. Without this, you cannot tell whether a change made things better.
+4. **Build, then tighten.** Prompting, retrieval tuning, reranking, tool design and guardrails are iterated against the evaluation set, not by gut feel.
+5. **Secure it.** We design against prompt injection, data leakage and excessive agency from the start, and offer independent testing through our [AI security and governance](/services/ai-security-governance) service.
+6. **Deploy and observe.** Logging, cost tracking, feedback buttons and dashboards show how the assistant performs and where it fails, so it improves after launch.
+
+## Deliverables
+
+- Use-case specification, risk assessment and success metrics.
+- Working assistant or agent deployed in your environment or ours, with authentication and role-based access.
+- Ingestion pipeline that keeps the index in sync with your sources.
+- Evaluation harness with the test set, scores and instructions to rerun it.
+- Guardrail configuration, escalation rules and human-approval flows for actions.
+- Monitoring dashboards, runbooks and documentation for your team.
+- A model and provider recommendation with cost estimates, so you can compare options.
+
+## Tools and technology
+
+We are provider-agnostic and select models by accuracy, latency, cost and data-residency needs, including hosted frontier models and open-weight models you run yourself. Typical components include a vector or hybrid search store such as PostgreSQL with pgvector, OpenSearch or a managed vector database, document parsing for PDF, Office and scanned files, orchestration code written as plain, testable application logic, and evaluation tooling for retrieval and answer quality. Integrations cover email, Slack and Teams, WhatsApp Business, CRMs, ticketing tools and internal APIs.
+
+## Responsible by default
+
+Assistants that touch business data need policies, not just prompts. We help you decide what data may enter the system, who can use which capability, how long conversations are retained and who reviews incidents. Where the work overlaps with regulation, such as personal data under the DPDP Act, we connect it to your [compliance programme](/services/compliance-readiness-iso-27001-soc-2-dpdp).
+
+## AI development company in Hyderabad
+
+Whether you are a startup adding a copilot, a mid-market firm automating back-office work or a global capability centre exploring internal assistants, working with a nearby team makes discovery workshops and data walkthroughs far faster. Our [guide to building a RAG chatbot that works in production](/blog/rag-chatbot-development-guide) explains the architecture and the mistakes we see most often, and our [software engineering](/services/custom-software-development) team can integrate the result into your existing systems.
+
+## What a pilot looks like
+
+A typical pilot covers one use case, one audience and one document collection, for example an internal policy assistant for HR and IT queries. In the first fortnight we gather questions and documents and agree the evaluation set. By week four there is a working assistant for a small group of real users, with feedback captured on every answer. By week six you have evaluation scores, a list of failure patterns, cost per conversation and a recommendation: expand, change course or stop. Stopping is a legitimate outcome, and finding that out cheaply is the point of a pilot.

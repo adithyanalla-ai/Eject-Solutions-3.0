@@ -1,0 +1,24 @@
+{
+  "_readme": "Edit freely. `weight` boosts a source in ranking. Feeds that fail are skipped, so a dead URL never breaks the pipeline. Verify each feed URL after changes: `node scripts/generate-drafts.mjs news --dry-run`.",
+  "feeds": [
+    { "name": "The Hacker News", "url": "https://feeds.feedburner.com/TheHackersNews", "weight": 1.0, "topics": ["cybersecurity"] },
+    { "name": "BleepingComputer", "url": "https://www.bleepingcomputer.com/feed/", "weight": 1.0, "topics": ["cybersecurity"] },
+    { "name": "Krebs on Security", "url": "https://krebsonsecurity.com/feed/", "weight": 1.1, "topics": ["cybersecurity"] },
+    { "name": "CISA Cybersecurity Advisories", "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml", "weight": 1.2, "topics": ["cybersecurity"] },
+    { "name": "NIST News", "url": "https://www.nist.gov/news-events/news/rss.xml", "weight": 1.0, "topics": ["ai", "compliance"] },
+    { "name": "MIT Technology Review", "url": "https://www.technologyreview.com/feed/", "weight": 0.8, "topics": ["ai"] },
+    { "name": "Inc42", "url": "https://inc42.com/feed/", "weight": 1.0, "topics": ["hyderabad", "startups"] },
+    { "name": "YourStory", "url": "https://yourstory.com/feed", "weight": 1.0, "topics": ["hyderabad", "startups"] },
+    { "name": "The Hindu: Technology", "url": "https://www.thehindu.com/sci-tech/technology/feeder/default.rss", "weight": 0.9, "topics": ["india", "ai"] },
+    { "name": "The Hindu BusinessLine: Info-tech", "url": "https://www.thehindubusinessline.com/info-tech/feeder/default.rss", "weight": 0.9, "topics": ["india", "hyderabad"] }
+  ],
+  "keywords": {
+    "hyderabad": 4, "telangana": 3, "india": 2, "indian": 2, "cert-in": 4, "dpdp": 5, "data protection": 3,
+    "vapt": 3, "penetration test": 3, "vulnerability": 2, "ransomware": 2, "zero-day": 2, "breach": 2, "phishing": 1,
+    "llm": 3, "prompt injection": 4, "ai agent": 3, "rag": 3, "generative ai": 2, "ai governance": 4, "ai act": 2,
+    "iso 27001": 3, "soc 2": 3, "iso 42001": 4, "compliance": 1,
+    "gcc": 3, "global capability": 3, "hiring": 2, "recruit": 2, "talent": 1, "staffing": 2
+  },
+  "maxAgeDays": 7,
+  "newsPerRun": 3
+}

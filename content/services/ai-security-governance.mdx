@@ -1,0 +1,82 @@
+---
+title: "AI Security & Governance: LLM Testing in India"
+description: "LLM application security testing, prompt-injection and data-leak assessments, and practical AI usage policies for Indian businesses."
+short: "AI Security & Governance"
+kicker: "Secure"
+icon: "lock"
+order: 4
+date: 2026-10-23
+updated: 2026-10-23
+keywords: ["LLM security testing", "AI governance consulting India", "prompt injection testing", "AI usage policy", "AI risk assessment"]
+faq:
+  - q: "What is LLM security testing?"
+    a: "It is a structured adversarial assessment of an application built on a large language model. Testers try to make the system leak data, ignore instructions, misuse its tools or produce harmful output, covering the model, the prompts, the retrieval layer, connected tools and the surrounding application."
+  - q: "What is prompt injection?"
+    a: "Prompt injection is when attacker-controlled text, typed by a user or hidden in a document, web page or email the model reads, overrides the developer's instructions. Indirect injection is especially dangerous for assistants that read untrusted content or can take actions."
+  - q: "Do we need this if we only use a vendor's chatbot internally?"
+    a: "You still need governance: rules on what data staff may paste in, approved tools, logging and a review path for new use cases. Technical testing matters most when you build or customise applications, connect tools, or let the model see sensitive data."
+  - q: "Which standards do you align with?"
+    a: "We use the OWASP Top 10 for LLM Applications as a testing baseline and map governance work to NIST AI RMF and, if you want a certifiable management system, ISO/IEC 42001. We map findings to the framework you choose, we do not claim certification on your behalf."
+  - q: "Can you test applications that use third-party models?"
+    a: "Yes. We test your application and its configuration, not the model vendor's infrastructure. We follow the provider's acceptable-use and testing policies and agree rules of engagement with you first."
+  - q: "What do we receive at the end?"
+    a: "A report with reproducible attack transcripts, impact ratings and fixes, a prioritised hardening plan, and optionally a draft AI usage policy, risk register and an evaluation suite you can rerun after changes."
+---
+## The problem: new attack surface, old assumptions
+
+Applications built on large language models fail in ways traditional testing never covered. The model follows instructions found in the data it reads. Natural language becomes an input channel that bypasses filters designed for code. An assistant with access to email, a database or a payment API can be talked into using it. And because outputs are probabilistic, a test that passes once may fail on the next run.
+
+Meanwhile staff are already pasting customer data, source code and contracts into public AI tools. Without clear policy, approved options and visibility, you are accepting risk you cannot see.
+
+## Our approach
+
+We split the work into two connected tracks. **Technical testing** finds how your AI application can be attacked. **Governance** gives your organisation the rules, roles and evidence to use AI safely at scale. You can buy either alone, but they are most useful together.
+
+### LLM application security testing
+
+We threat-model the application end to end, then test against the categories in the OWASP Top 10 for LLM Applications, including:
+
+- **Direct and indirect prompt injection**, including instructions hidden in PDFs, web pages, emails and tickets the assistant processes.
+- **Sensitive information disclosure:** system prompt extraction, training or context leakage, cross-user data exposure in shared indices and caches.
+- **Insecure output handling:** model output rendered as HTML or executed as code, SQL or shell commands, leading to classic injection through a new door.
+- **Excessive agency:** tools and agents with broader permissions than the task needs, and missing human approval on high-impact actions.
+- **Retrieval and data poisoning:** malicious or stale documents influencing answers, and access-control gaps in RAG pipelines.
+- **Denial of wallet and abuse:** unbounded token use, expensive loops and missing rate limits.
+- **Supply chain:** model, plugin and dependency provenance.
+
+Testing is manual and scripted: we build attack corpora, run them repeatedly to account for variability, and record transcripts so your engineers can reproduce every finding.
+
+### AI governance consulting
+
+We help you build the minimum viable programme that actually gets followed: an inventory of AI tools and use cases, a risk-tiering method, an AI acceptable-use policy in plain language, data-handling rules by classification, vendor due-diligence questions, human-oversight requirements for high-impact decisions, and an incident process for AI failures. We align the structure to NIST AI RMF and, where you want a certifiable system, ISO/IEC 42001, and connect it to existing security and privacy controls rather than creating a parallel bureaucracy.
+
+## Deliverables
+
+1. Threat model and test plan for the AI application.
+2. Findings report with attack transcripts, severity, business impact and remediation.
+3. Hardening recommendations: prompt and tool design, permission scoping, output validation, retrieval filtering and monitoring.
+4. A regression suite of adversarial tests you can run in CI after each change.
+5. AI inventory, risk register, acceptable-use policy and vendor checklist (governance track).
+6. Awareness session for staff and a technical workshop for developers.
+7. Retest of fixed findings.
+
+## Process
+
+1. **Discovery:** architecture, data flows, models, tools, users and worst-case outcomes.
+2. **Threat modelling:** map abuse cases to components and rank by impact.
+3. **Testing:** manual adversarial testing plus automated attack runs.
+4. **Reporting and workshop:** walk through findings with the build team.
+5. **Fix and retest:** verify mitigations and leave the regression suite behind.
+6. **Governance rollout:** policy, training and review cadence.
+
+## Tools and references
+
+We use a mix of open-source red-teaming tools, custom attack scripts and conventional application-security tooling such as Burp Suite for the web layer around the model. References include the OWASP Top 10 for LLM Applications, MITRE ATLAS for adversary techniques against AI systems, NIST AI RMF and ISO/IEC 42001. We state clearly in each report what was and was not tested, because model behaviour changes over time.
+
+## Who it is for
+
+Teams shipping chatbots, copilots or agents to customers; enterprises rolling out internal assistants over confidential data; and regulated businesses that need to show customers, boards or auditors how AI risk is managed. If you are also building the system, our [AI agents and RAG assistants](/services/ai-agents-rag-assistants) team designs these controls in from the start. For a practical reading list on ongoing changes, follow our [news section](/news).
+
+## AI governance consulting in India
+
+Indian organisations face a specific mix of expectations: customer security questionnaires, the DPDP Act's duties around personal data, sector regulators for finance and health, and global parents with their own AI policies. We help translate those into a short, enforceable policy set and, when needed, link it to your [ISO 27001, SOC 2 and DPDP programme](/services/compliance-readiness-iso-27001-soc-2-dpdp). We work from Hyderabad with clients across India.

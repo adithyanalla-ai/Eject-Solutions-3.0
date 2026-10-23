@@ -1,0 +1,125 @@
+---
+title: "DPDP Act Compliance Checklist for Indian Startups"
+description: "A practical checklist for India's Digital Personal Data Protection Act: roles, consent notices, security safeguards, breach response and rights requests."
+date: 2026-10-13
+updated: 2026-10-13
+author: eject-editorial
+category: Compliance
+tags: ["DPDP Act", "data protection", "privacy", "compliance", "startups"]
+services: ["compliance-readiness-iso-27001-soc-2-dpdp", "managed-threat-monitoring-incident-response"]
+industries: ["saas-startups", "fintech-bfsi"]
+cover: /covers/dpdp-act-compliance-checklist-startups.svg
+coverAlt: "Abstract shield and checklist motif in cyan and violet"
+faq:
+  - q: "Does the DPDP Act apply to startups?"
+    a: "Yes. It applies to the processing of digital personal data in India by organisations of any size, including startups. Some exemptions and relaxations exist for certain classes of data fiduciaries, so check the Act and Rules for your situation."
+  - q: "What is a Data Fiduciary?"
+    a: "A Data Fiduciary is the person or organisation that decides why and how personal data is processed, similar to a controller under other laws. A Data Processor processes data on the fiduciary's behalf. The fiduciary stays accountable even when it uses processors."
+  - q: "What is the penalty for non-compliance?"
+    a: "The Act's schedule sets monetary penalties of up to INR 250 crore for failure to maintain reasonable security safeguards and up to INR 200 crore for failure to notify a breach, among others. Penalties are decided by the Data Protection Board after an inquiry."
+  - q: "Do we need a Data Protection Officer?"
+    a: "A Data Protection Officer based in India is required for Significant Data Fiduciaries. Others must still provide a contact person who can answer questions about processing. Check which category you fall into."
+---
+India's Digital Personal Data Protection Act, 2023 (DPDP Act) changes how every business that handles digital personal data must think about collection, consent, security and breach response. For startups with thin teams and fast release cycles, the Act can feel abstract. This checklist turns it into work you can plan. It is a practical guide, not legal advice, and you should confirm details with qualified counsel.
+
+<Callout title="Check current dates">
+The Act is in force, and the DPDP Rules were notified in November 2025 with obligations coming into effect in phases. Timelines and details can change, so verify which provisions currently apply to you from the official Ministry of Electronics and Information Technology publications before you finalise a plan.
+</Callout>
+
+## First, the vocabulary
+
+- **Data Principal:** the individual the data is about, such as a customer, user or employee.
+- **Data Fiduciary:** the organisation that determines the purpose and means of processing. Most startups are fiduciaries for their customer and employee data.
+- **Data Processor:** an organisation that processes data on a fiduciary's behalf, such as a cloud provider, an email platform or an analytics vendor.
+- **Significant Data Fiduciary:** a category the government can notify based on factors such as volume and sensitivity of data, with extra duties like an independent data audit and a Data Protection Officer based in India.
+- **Data Protection Board of India:** the body that handles complaints and inquiries and can impose penalties.
+- **Consent Manager:** a registered entity that lets individuals manage consent across fiduciaries.
+
+## The checklist
+
+### 1. Know what personal data you hold
+
+You cannot protect or justify data you cannot find. Build a data inventory: which personal data you collect (names, phone numbers, email, location, device identifiers, KYC documents, health or financial details), where it enters (forms, app, SDKs, support tickets, spreadsheets), where it is stored (databases, logs, backups, data warehouse, shared drives), who can access it and which vendors receive it. Include employee and candidate data. This inventory is the foundation for every other item.
+
+### 2. Define the purpose and collect only what you need
+
+The Act ties processing to a specified purpose and expects you to limit it to what is necessary. For each data element, write why you collect it. If you cannot justify a field, remove it. Many startups discover they store full birthdates, precise location or identity documents with no ongoing need.
+
+### 3. Get your lawful basis right
+
+The Act allows processing based on the individual's consent or for specified "legitimate uses", such as certain government functions, medical emergencies and employment-related purposes. For most commercial products, consent is the basis. Map each purpose to consent or to a legitimate use, and document the reasoning.
+
+### 4. Write a clear notice and a valid consent flow
+
+Consent must be free, specific, informed, unconditional and unambiguous, given by a clear affirmative action. A notice should tell people what data you collect, for what purpose, how they can exercise their rights and how to complain. Practical steps:
+
+- Present the notice at or before collection, in plain language, and offer it in English and, where relevant, in other languages listed in the Constitution's Eighth Schedule.
+- Avoid pre-ticked boxes and bundled consent for unrelated purposes.
+- Record when and how each person consented and which notice version they saw.
+- Make withdrawing consent as easy as giving it, and stop processing when it is withdrawn, subject to legal obligations.
+- Separate marketing consent from service delivery.
+
+### 5. Handle children's data with extra care
+
+For people under 18, the Act requires verifiable consent from a parent or guardian and prohibits tracking, behavioural monitoring and targeted advertising directed at children, with limited exemptions. If your product might be used by minors, such as an edtech or gaming app, decide how you will verify age and parental consent, or restrict access.
+
+### 6. Put reasonable security safeguards in place
+
+The Act requires reasonable security safeguards to prevent a personal data breach, and failing to do so carries the highest penalty tier. "Reasonable" is not defined in a checklist, but regulators and courts will look at whether you did what a prudent organisation of your size and risk would do. Core measures include:
+
+- Encryption in transit and at rest for personal data.
+- Role-based access with least privilege, multi-factor authentication for admins and prompt removal of leavers.
+- Logging and monitoring of access to personal data, with logs retained for investigation.
+- Secure development practices, dependency updates and regular [penetration testing](/services/vapt-penetration-testing).
+- Backups and tested recovery.
+- Vendor security review and contracts requiring equivalent safeguards.
+- Security awareness training for staff.
+
+Frameworks such as ISO 27001 and SOC 2 give structure and evidence for this work, and our [compliance readiness service](/services/compliance-readiness-iso-27001-soc-2-dpdp) can combine them with DPDP.
+
+### 7. Prepare for personal data breaches
+
+If a breach occurs, the Act requires you to notify the Data Protection Board and each affected individual, in the manner the Rules prescribe. Existing CERT-In directions separately require reporting certain cyber incidents within six hours. Prepare before you need it:
+
+- Write an incident response plan naming who decides, who investigates, who talks to regulators and who talks to customers.
+- Define what counts as a personal data breach and how severity is assessed.
+- Keep contact details and a draft notification ready.
+- Run a tabletop exercise once a year.
+- Consider a [managed monitoring and incident response](/services/managed-threat-monitoring-incident-response) arrangement if you do not have in-house responders.
+
+### 8. Set up rights and grievance handling
+
+Individuals can ask to access information about their data, to correct and update it, to erase it, to nominate someone to exercise rights on their behalf if they die or become incapacitated, and to have grievances addressed. Create a simple channel, such as a dedicated email address and form, define who responds and within what time, verify identity before acting and keep a log. Publish contact details for your grievance contact in your privacy policy.
+
+### 9. Control retention and erasure
+
+Delete personal data when the purpose is complete and consent is withdrawn, unless law requires you to keep it. Write retention periods per data type, automate deletion where possible and remember backups, logs, analytics exports and spreadsheets copied by staff.
+
+### 10. Manage vendors and cross-border transfers
+
+List every processor with access to personal data and make sure contracts cover security, confidentiality, breach notification and deletion. The Act permits cross-border transfers except to countries the government restricts by notification, but sector laws can be stricter, so check any sector rules that apply to you. Review SDKs in your mobile app, because third-party analytics and advertising libraries often collect more than teams realise.
+
+### 11. Assign ownership
+
+Name an accountable person, even if they hold other responsibilities. Give them time, a simple tracker and executive support. If you might be a Significant Data Fiduciary, plan for the additional duties: a Data Protection Officer based in India, an independent data auditor and periodic data protection impact assessments.
+
+### 12. Train and document
+
+Policies that live in a folder do not protect anyone. Train engineers, support teams, sales and HR on what personal data is, how to handle it and what to do if something goes wrong. Keep records of decisions, notices, consents, assessments and training. When the Board or a customer asks what you did, documentation is your answer.
+
+## A practical sequence for a small team
+
+1. Weeks 1 to 2: inventory data and vendors, name an owner.
+2. Weeks 3 to 4: rewrite notices and consent flows, set up the rights and grievance channel.
+3. Weeks 5 to 8: close security gaps found by the inventory, test the application and write the breach plan.
+4. Weeks 9 to 12: retention rules, vendor contracts, staff training and a tabletop exercise.
+
+Your timeline will differ, but ordering work like this puts the highest-risk items first.
+
+## What not to do
+
+Do not copy a privacy policy from a larger company and assume it matches your practice. Do not collect data "just in case". Do not bury consent inside terms and conditions. Do not forget employees and job applicants. And do not wait for a first complaint to find out who handles it.
+
+## Getting help
+
+If you want a second pair of eyes, we help startups and mid-sized firms in Hyderabad and across India map their data, design consent flows, test their applications and prepare for audits. Start with our [compliance readiness service](/services/compliance-readiness-iso-27001-soc-2-dpdp) or [book a consultation](/contact). For legal interpretation, speak to a lawyer who specialises in data protection, and bring this checklist with you.
