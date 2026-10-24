@@ -15,7 +15,6 @@ export type Meta = {
   reviewed?: string;
   author?: string;
   category?: string;
-  tags: string[];
   cover?: string;
   coverAlt?: string;
   faq: Faq[];
@@ -30,6 +29,13 @@ export type Meta = {
   kicker?: string;
   hyderabadHeading?: string;
   keywords: string[];
+  // service pillars / sub-services
+  number?: number;
+  parent?: string;
+  tags: string[];
+  card?: string;
+  cardTitle?: string;
+  illustration?: string;
   // news-specific
   source?: { name: string; url: string };
   // author-specific
@@ -85,7 +91,6 @@ function load(collection: Collection): Entry[] {
       reviewed: iso(data.reviewed),
       author: data.author,
       category: data.category,
-      tags: data.tags ?? [],
       cover: data.cover,
       coverAlt: data.coverAlt,
       faq: data.faq ?? [],
@@ -99,6 +104,12 @@ function load(collection: Collection): Entry[] {
       kicker: data.kicker,
       hyderabadHeading: data.hyderabadHeading,
       keywords: data.keywords ?? [],
+      number: data.number,
+      parent: data.parent,
+      tags: Array.isArray(data.tags) && collection === "services" ? data.tags : (data.tags ?? []),
+      card: data.card,
+      cardTitle: data.cardTitle,
+      illustration: data.illustration,
       source: data.source,
       role: data.role,
       sameAs: data.sameAs ?? [],
@@ -131,6 +142,8 @@ export const blogPosts = () => load("blog");
 export const newsItems = () => load("news");
 export const services = () => load("services");
 export const industries = () => load("industries");
+export const pillars = () => services().filter((s) => s.number).sort((a, b) => (a.number ?? 0) - (b.number ?? 0));
+export const subServices = (slug: string) => services().filter((s) => s.parent === slug);
 
 export function relatedPosts(e: Entry, limit = 3): Entry[] {
   return blogPosts()

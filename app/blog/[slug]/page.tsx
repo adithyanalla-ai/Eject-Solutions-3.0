@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { CoverScene } from "@/components/illustrations/scenes";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -50,9 +50,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             {" · "}{p.minutes} min read
           </p>
         </header>
-        {p.cover && (
-          <Image src={p.cover} alt={p.coverAlt ?? ""} width={1200} height={630} priority unoptimized className="mt-8 h-auto w-full max-w-3xl rounded-2xl border border-line" />
-        )}
+        <CoverScene category={p.category} className="mt-8 h-auto w-full max-w-3xl rounded-3xl border border-white/70 shadow-[0_10px_30px_rgba(10,10,10,.08)]" />
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_18rem]">
           <article>
             <Mdx source={p.body} />

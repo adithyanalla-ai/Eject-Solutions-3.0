@@ -2,18 +2,21 @@
 
 Run date: 23 Oct 2026. Lighthouse (mobile emulation, simulated slow-4G + 4x CPU throttle) against a **production build served locally** (`next build && next start`) in a shared cloud sandbox. Raw numbers: `docs/lighthouse-summary.json`. Re-run with `npm run lighthouse`.
 
-## Scores (mobile), final design (yellow / white / black, light skeuomorphism + frosted glass)
+## Scores (mobile), final design with illustrations, ticker and 6-pillar services
 
 | Page | Performance | Accessibility | Best Practices | SEO | LCP | CLS | TBT |
 |---|---|---|---|---|---|---|---|
-| Home `/` | 95 to 98 (3 runs; one cold-start outlier at 84) | 100 | 100 | 100 | 2.2 to 2.3 s | 0 | 120 to 230 ms |
-| Service `/services/vapt-penetration-testing` | 98 | 100 | 100 | 100 | 2.3 s | 0 | 110 ms |
-| Blog post `/blog/vapt-services-hyderabad-what-to-expect` | 96 | 100 | 100 | 100 | 2.4 s | 0 | 150 ms |
-| Contact `/contact` | 99 | 100 | 100 | 100 | 2.1 s | 0 | 70 ms |
+| Home `/` | 98 | 100 | 100 | 100 | 2.3 s | 0 | 80 ms |
+| Services index `/services` | 97 | 100 | 100 | 100 | 2.3 s | 0 | 130 ms |
+| Service page `/services/hr-solutions` | 98 | 100 | 100 | 100 | 2.3 s | 0 | 100 ms |
+| Blog post `/blog/vapt-services-hyderabad-what-to-expect` | 97 | 100 | 100 | 100 | 2.3 s | 0 | 130 ms |
+| Contact `/contact` | 98 | 100 | 100 | 100 | 2.2 s | 0 | 90 ms |
 
-Raw numbers: `docs/lighthouse-summary.json`. Re-run with `npm run lighthouse`. Lab noise in a shared sandbox is about ±3 points and ±0.3 s LCP. **The home page occasionally dips to 94 (one run in three), just under the 95 target; the other three pages and all Accessibility, Best Practices and SEO scores are at or above target.** Before the skeuomorphic redesign (dark theme) the same page scored 97 to 98, so the frosted navbar, hero console and ambient orbs cost roughly 1 to 3 points of TBT-driven score.
+Raw numbers: `docs/lighthouse-summary.json`. Re-run with `npm run lighthouse`. Lab noise is about ±3 points. Also scored 100 for accessibility: `/services/mobile-app-development`, `/blog/rag-chatbot-development-guide` and `/design/illustrations`.
 
-**LCP is borderline against the < 2.0 s goal in the lab (2.1 to 2.4 s).** Lighthouse's simulated slow-4G + 4x CPU throttling is harsher than most real devices and the figure is a *lab* number. The real Core Web Vitals judgement uses field data (CrUX, 75th percentile), which only exists after launch. Check Search Console → Core Web Vitals after ~28 days. INP cannot be measured in a lab run; the site ships ~103 kB shared JS, no third-party scripts and tiny handlers, so risk is low, but verify in the field.
+**All four categories are 95+ on every tested page. Targets met: CLS < 0.05 (0), Lighthouse 95+.**
+
+**LCP is above the < 2.0 s goal in the lab (2.2 to 2.3 s).** Lighthouse's simulated slow-4G + 4x CPU throttling is harsher than most real devices and the figure is a *lab* number. The real Core Web Vitals judgement uses field data (CrUX, 75th percentile), which only exists after launch. Check Search Console → Core Web Vitals after ~28 days. INP cannot be measured in a lab run; the site ships ~103 kB shared JS, no third-party scripts and tiny handlers, so risk is low, but verify in the field.
 
 Levers if you need more headroom: remove the third orb, drop `backdrop-filter` from the navbar on low-end devices (`@media (max-width: 640px)`), or turn the hero console into a static list.
 
@@ -27,6 +30,15 @@ Levers if you need more headroom: remove the third orb, drop `backdrop-filter` f
 | Author page title 74 chars | Shortened to `Author: <name>`. |
 | `/newsletter/confirmed` rendered dynamically | Moved `searchParams` reading into a client component inside `<Suspense>`; page is now static. |
 | `inlineCss` experiment | Tried Next's experimental CSS inlining: no measurable gain, larger HTML. Reverted. |
+
+## Illustrations, ticker and new nav: what they cost, and the fixes they needed
+
+| Finding | Fix |
+|---|---|
+| Ticker scored Accessibility 90 to 93: duplicated marquee links inside `aria-hidden` were focusable, and partly clipped moving links failed WCAG 2.2 target size | The scrolling phrases are now text only. One link covers the bar (up to the pause button), so there are no moving, clipped or duplicated focus targets. Accessibility is back to 100 |
+| Heading order on `/services` (h3 cards directly under the h1) | `ServiceCard` takes an `as` prop; the index renders h2 |
+| Illustration weight | 25 scenes, largest 8.5 KB (limit 15 KB), checked by `npm run illos`. SVGO would trim a further 8 to 47% (median about 20%). I kept the scenes as JSX so colours stay theme tokens and motion hooks stay intact, and rely on gzip (about 2 KB per scene) |
+| Below-the-fold art cost | `content-visibility: auto` (class `lazy-art`) with explicit width/height, so offscreen scenes are not rendered until near the viewport. This defers rendering, not download: inline SVG ships with the HTML |
 
 ## What the numbers do not cover
 

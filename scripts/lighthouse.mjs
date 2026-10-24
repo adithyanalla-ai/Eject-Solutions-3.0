@@ -5,7 +5,7 @@ import lighthouse from "lighthouse";
 import * as chromeLauncher from "chrome-launcher";
 
 const base = (process.argv[2] ?? "http://localhost:3000").replace(/\/$/, "");
-const pages = ["/", "/services/vapt-penetration-testing", "/blog/vapt-services-hyderabad-what-to-expect", "/contact"];
+const pages = ["/", "/services", "/services/hr-solutions", "/blog/vapt-services-hyderabad-what-to-expect", "/contact"];
 const chromePath = process.env.CHROME_PATH ?? "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
 const chrome = await chromeLauncher.launch({ chromePath, chromeFlags: ["--headless=new", "--no-sandbox", "--disable-gpu"] });
 const out = [];

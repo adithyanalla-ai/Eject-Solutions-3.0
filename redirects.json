@@ -1,44 +1,190 @@
 [
-  { "source": "/index.html", "destination": "/" },
-  { "source": "/home", "destination": "/" },
-  { "source": "/about.html", "destination": "/about" },
-  { "source": "/about-us", "destination": "/about" },
-  { "source": "/aboutus.html", "destination": "/about" },
-  { "source": "/services.html", "destination": "/services" },
-  { "source": "/service.html", "destination": "/services" },
-  { "source": "/our-services", "destination": "/services" },
-  { "source": "/contact.html", "destination": "/contact" },
-  { "source": "/contact-us", "destination": "/contact" },
-  { "source": "/contactus.html", "destination": "/contact" },
-  { "source": "/careers.html", "destination": "/careers" },
-  { "source": "/career.html", "destination": "/careers" },
-  { "source": "/career", "destination": "/careers" },
-  { "source": "/jobs", "destination": "/careers" },
-  { "source": "/blog.html", "destination": "/blog" },
-  { "source": "/news.html", "destination": "/news" },
-  { "source": "/portfolio.html", "destination": "/case-studies" },
-  { "source": "/portfolio", "destination": "/case-studies" },
-  { "source": "/projects", "destination": "/case-studies" },
-  { "source": "/privacy.html", "destination": "/privacy" },
-  { "source": "/privacy-policy", "destination": "/privacy" },
-  { "source": "/terms.html", "destination": "/terms" },
-  { "source": "/terms-and-conditions", "destination": "/terms" },
-  { "source": "/software-development", "destination": "/services/custom-software-development" },
-  { "source": "/software-development.html", "destination": "/services/custom-software-development" },
-  { "source": "/web-development", "destination": "/services/custom-software-development" },
-  { "source": "/mobile-app-development", "destination": "/services/custom-software-development" },
-  { "source": "/cybersecurity", "destination": "/services/vapt-penetration-testing" },
-  { "source": "/cybersecurity.html", "destination": "/services/vapt-penetration-testing" },
-  { "source": "/cyber-security", "destination": "/services/vapt-penetration-testing" },
-  { "source": "/vapt", "destination": "/services/vapt-penetration-testing" },
-  { "source": "/ai-solutions", "destination": "/services/ai-agents-rag-assistants" },
-  { "source": "/ai.html", "destination": "/services/ai-agents-rag-assistants" },
-  { "source": "/artificial-intelligence", "destination": "/services/ai-agents-rag-assistants" },
-  { "source": "/hr-solutions", "destination": "/services/ai-recruitment-it-staffing" },
-  { "source": "/hr.html", "destination": "/services/ai-recruitment-it-staffing" },
-  { "source": "/recruitment", "destination": "/services/ai-recruitment-it-staffing" },
-  { "source": "/staffing", "destination": "/services/ai-recruitment-it-staffing" },
-  { "source": "/training", "destination": "/services/ai-upskilling-training-internships" },
-  { "source": "/internships", "destination": "/services/ai-upskilling-training-internships" },
-  { "source": "/digital-marketing", "destination": "/services/ai-marketing-automation" }
+  {
+    "source": "/index.html",
+    "destination": "/"
+  },
+  {
+    "source": "/home",
+    "destination": "/"
+  },
+  {
+    "source": "/about.html",
+    "destination": "/about"
+  },
+  {
+    "source": "/about-us",
+    "destination": "/about"
+  },
+  {
+    "source": "/aboutus.html",
+    "destination": "/about"
+  },
+  {
+    "source": "/services.html",
+    "destination": "/services"
+  },
+  {
+    "source": "/service.html",
+    "destination": "/services"
+  },
+  {
+    "source": "/our-services",
+    "destination": "/services"
+  },
+  {
+    "source": "/contact.html",
+    "destination": "/contact"
+  },
+  {
+    "source": "/contact-us",
+    "destination": "/contact"
+  },
+  {
+    "source": "/contactus.html",
+    "destination": "/contact"
+  },
+  {
+    "source": "/careers.html",
+    "destination": "/careers"
+  },
+  {
+    "source": "/career.html",
+    "destination": "/careers"
+  },
+  {
+    "source": "/career",
+    "destination": "/careers"
+  },
+  {
+    "source": "/jobs",
+    "destination": "/careers"
+  },
+  {
+    "source": "/blog.html",
+    "destination": "/blog"
+  },
+  {
+    "source": "/news.html",
+    "destination": "/news"
+  },
+  {
+    "source": "/portfolio.html",
+    "destination": "/case-studies"
+  },
+  {
+    "source": "/portfolio",
+    "destination": "/case-studies"
+  },
+  {
+    "source": "/projects",
+    "destination": "/case-studies"
+  },
+  {
+    "source": "/privacy.html",
+    "destination": "/privacy"
+  },
+  {
+    "source": "/privacy-policy",
+    "destination": "/privacy"
+  },
+  {
+    "source": "/terms.html",
+    "destination": "/terms"
+  },
+  {
+    "source": "/terms-and-conditions",
+    "destination": "/terms"
+  },
+  {
+    "source": "/software-development",
+    "destination": "/services/custom-software-development"
+  },
+  {
+    "source": "/software-development.html",
+    "destination": "/services/custom-software-development"
+  },
+  {
+    "source": "/web-development",
+    "destination": "/services/custom-software-development"
+  },
+  {
+    "source": "/mobile-app-development",
+    "destination": "/services/mobile-app-development"
+  },
+  {
+    "source": "/cybersecurity",
+    "destination": "/services/vapt-penetration-testing"
+  },
+  {
+    "source": "/cybersecurity.html",
+    "destination": "/services/vapt-penetration-testing"
+  },
+  {
+    "source": "/cyber-security",
+    "destination": "/services/vapt-penetration-testing"
+  },
+  {
+    "source": "/vapt",
+    "destination": "/services/vapt-penetration-testing"
+  },
+  {
+    "source": "/ai-solutions",
+    "destination": "/services/ai-agents-rag-assistants"
+  },
+  {
+    "source": "/ai.html",
+    "destination": "/services/ai-agents-rag-assistants"
+  },
+  {
+    "source": "/artificial-intelligence",
+    "destination": "/services/ai-agents-rag-assistants"
+  },
+  {
+    "source": "/hr-solutions",
+    "destination": "/services/hr-solutions"
+  },
+  {
+    "source": "/hr.html",
+    "destination": "/services/hr-solutions"
+  },
+  {
+    "source": "/recruitment",
+    "destination": "/services/ai-recruitment-it-staffing"
+  },
+  {
+    "source": "/staffing",
+    "destination": "/services/ai-recruitment-it-staffing"
+  },
+  {
+    "source": "/training",
+    "destination": "/services/ai-upskilling-training-internships"
+  },
+  {
+    "source": "/internships",
+    "destination": "/services/ai-upskilling-training-internships"
+  },
+  {
+    "source": "/digital-marketing",
+    "destination": "/services/content-marketing"
+  },
+  {
+    "source": "/content-marketing",
+    "destination": "/services/content-marketing"
+  },
+  {
+    "source": "/hrms",
+    "destination": "/services/hr-solutions"
+  },
+  {
+    "source": "/payroll",
+    "destination": "/services/hr-solutions"
+  },
+  {
+    "source": "/seo",
+    "destination": "/services/content-marketing"
+  },
+  {
+    "source": "/cloud",
+    "destination": "/services/cloud-native-api-engineering"
+  }
 ]

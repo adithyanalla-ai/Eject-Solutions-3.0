@@ -4,10 +4,10 @@ import Icon from "./Icon";
 import NewsletterForm from "./NewsletterForm";
 import CookieSettings from "./CookieSettings";
 import { addressLine, site, whatsappHref } from "@/lib/site";
-import { industries, services } from "@/lib/content";
+import { industries, pillars, subServices } from "@/lib/content";
 
 export default function Footer() {
-  const svc = services();
+  const svc = pillars();
   const ind = industries();
   return (
     <footer className="mt-8">
@@ -32,7 +32,16 @@ export default function Footer() {
         <nav aria-label="Services" className="lg:col-span-1">
           <p className="font-display font-medium mb-3">Services</p>
           <ul className="space-y-2 text-sm text-muted">
-            {svc.map((s) => (<li key={s.slug}><Link className="hover:text-primary" href={`/services/${s.slug}`}>{s.short ?? s.title}</Link></li>))}
+            {svc.map((s) => (
+              <li key={s.slug}>
+                <Link className="hover:text-primary" href={`/services/${s.slug}`}>{s.cardTitle ?? s.title}</Link>
+                {subServices(s.slug).length > 0 && (
+                  <ul className="mt-1 space-y-1 border-l border-line pl-3">
+                    {subServices(s.slug).map((x) => (<li key={x.slug}><Link className="text-xs hover:text-primary" href={`/services/${x.slug}`}>{x.cardTitle ?? x.title}</Link></li>))}
+                  </ul>
+                )}
+              </li>
+            ))}
           </ul>
         </nav>
         <nav aria-label="Industries and company" className="lg:col-span-2 grid grid-cols-2 gap-8">

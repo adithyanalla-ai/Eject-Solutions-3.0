@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ContactForm from "@/components/ContactForm";
 import Icon from "@/components/Icon";
+import Illustration from "@/components/illustrations/Illustration";
 import JsonLd from "@/components/JsonLd";
 import { localBusinessLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
@@ -25,6 +26,7 @@ export default function Contact() {
       <div className="mt-10 grid gap-10 lg:grid-cols-[1.3fr_1fr]">
         <ContactForm turnstileKey={site.turnstileSiteKey} />
         <div className="space-y-6">
+          <Illustration name="contact" className="mx-auto h-auto w-full max-w-[260px]" />
           <address className="panel p-6 not-italic space-y-3">
             <p className="font-display text-lg font-medium">{site.legalName}</p>
             <p className="flex gap-3 text-muted"><Icon name="pin" className="mt-1 shrink-0 text-primary" /> {addressLine}</p>

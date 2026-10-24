@@ -26,6 +26,8 @@ Legend: ✅ implemented in code · 🧑 you must do this · ⚠️ needs your in
 | Verification meta tags for GSC and Bing | ✅ | set `NEXT_PUBLIC_GSC_VERIFICATION`, `NEXT_PUBLIC_BING_VERIFICATION` |
 | Event tracking for CTA clicks and form submits (consent-aware) | ✅ | `data-track` attributes + `lib/analytics.ts` |
 | Placeholder pages `noindex` and out of sitemap | ✅ | case-study template |
+| Internal style guide `/design/illustrations`: `noindex`, robots-disallowed, not in sitemap | ✅ | `app/design/` |
+| Sub-service pages carry breadcrumbs through their pillar (Services › Pillar › Sub-service) | ✅ | `app/services/[slug]` |
 
 **Validate yourself (cannot be done from the build sandbox):**
 - 🧑 Run each page type through Google's [Rich Results Test](https://search.google.com/test/rich-results): home, a service, a blog post, a news item, an author page. JSON-LD parses as valid JSON on all 40 URLs (`audit-seo.mjs`), but only Google's tool confirms eligibility.

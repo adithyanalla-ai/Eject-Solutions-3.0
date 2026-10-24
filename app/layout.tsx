@@ -5,7 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Enhancements from "@/components/Enhancements";
 import LazyWidgets from "@/components/LazyWidgets";
-import WhatsAppFab from "@/components/WhatsAppFab";
+import Ticker from "@/components/Ticker";
+import ColabsPill from "@/components/ColabsPill";
 import BookFab from "@/components/BookFab";
 import ReadingProgress from "@/components/ReadingProgress";
 import { SITE_URL, site } from "@/lib/site";
@@ -58,10 +59,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <div className="backdrop" aria-hidden="true"><span className="orb orb-1" /><span className="orb orb-2" /><span className="orb orb-3" /><span className="grain" /></div>
         <ReadingProgress />
+        <Ticker />
         <Header />
         <main id="main">{children}</main>
         <Footer />
-        <WhatsAppFab />
+        <ColabsPill />
         <BookFab />
         <Enhancements />
         <LazyWidgets ga4={site.ga4} />

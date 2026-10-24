@@ -36,6 +36,12 @@ const check = (ok, msg) => { console.log(`${ok ? "✓" : "✗"} ${msg}`); if (!o
   await page.click('button[aria-label^="Toggle Frosted Night"]');
   const after = await page.getAttribute("html", "data-theme");
   check(before === "light" && after === "dark", `theme toggle ${before} → ${after}`);
+  const hrefs = await page.$$eval(".ticker a", (a) => a.map((x) => x.href));
+  check(hrefs.length === 1 && hrefs.every((h) => h.startsWith("https://wa.me/")), "ticker links open WhatsApp");
+  await page.click('.ticker button');
+  check((await page.getAttribute(".ticker button", "aria-pressed")) === "true" && (await page.getAttribute(".ticker", "data-paused")) === "true", "ticker can be paused");
+  const navLabels = await page.$$eval('nav[aria-label="Primary"] a', (a) => a.map((x) => x.textContent));
+  check(navLabels.join("|") === "Home|Services|Projects|Contact|Blog|News", `nav: ${navLabels.join(", ")}`);
   await page.screenshot({ path: process.env.SHOT_DIR ? `${process.env.SHOT_DIR}/service-light.png` : "/dev/null" }).catch(() => {});
   await ctx.close();
 }
@@ -61,6 +67,8 @@ const check = (ok, msg) => { console.log(`${ok ? "✓" : "✗"} ${msg}`); if (!o
   await page.waitForTimeout(600);
   const anim = await page.$eval(".orb-1", (e) => getComputedStyle(e).animationName);
   const hidden = await page.$$eval(".reveal", (els) => els.filter((e) => getComputedStyle(e).opacity === "0").length);
+  const tickerAnim = await page.$eval(".ticker-track", (e) => getComputedStyle(e).animationName);
+  check(tickerAnim === "none", `reduced motion: ticker animation=${tickerAnim}`);
   check(anim === "none" && hidden === 0, `reduced motion: ambient orb animation=${anim}, hidden reveals=${hidden}`);
   await ctx.close();
 }

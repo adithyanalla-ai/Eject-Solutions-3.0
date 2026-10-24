@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { track } from "@/lib/analytics";
+import { SuccessMark } from "./illustrations/scenes";
 
 export default function NewsletterForm({ compact = false }: { compact?: boolean }) {
   const [state, setState] = useState<{ s: "idle" | "sending" | "ok" | "error"; m?: string }>({ s: "idle" });
@@ -23,7 +24,7 @@ export default function NewsletterForm({ compact = false }: { compact?: boolean 
   }
 
   if (state.s === "ok")
-    return <p role="status" className="text-fg">Almost done. Check your inbox and click the confirmation link to finish subscribing.</p>;
+    return (<div role="status" className="flex items-center gap-4"><SuccessMark className="h-16 w-16 shrink-0" /><p className="text-fg">Almost done. Check your inbox and click the confirmation link to finish subscribing.</p></div>);
 
   return (
     <form onSubmit={submit} noValidate>

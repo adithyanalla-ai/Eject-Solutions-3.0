@@ -1,8 +1,10 @@
+import { ProcessIcon } from "./illustrations/scenes";
+
 const steps = [
-  { n: 1, t: "Discover", d: "A scoping call, a written brief and the riskiest assumptions named up front." },
-  { n: 2, t: "Build", d: "Thin vertical slices on real infrastructure, with a demo every sprint." },
-  { n: 3, t: "Secure", d: "Threat model, code review and independent testing before anything ships." },
-  { n: 4, t: "Automate", d: "Monitoring, AI assistants and workflows that keep paying off after launch." },
+  { n: 1, k: "discover", t: "Discover", d: "A scoping call, a written brief and the riskiest assumptions named up front." },
+  { n: 2, k: "build", t: "Build", d: "Thin vertical slices on real infrastructure, with a demo every sprint." },
+  { n: 3, k: "secure", t: "Secure", d: "Threat model, code review and independent testing before anything ships." },
+  { n: 4, k: "automate", t: "Automate", d: "Monitoring, AI assistants and workflows that keep paying off after launch." },
 ];
 
 export default function ProcessTimeline() {
@@ -13,6 +15,7 @@ export default function ProcessTimeline() {
         <li key={s.n} className="reveal relative flex gap-4 md:block md:text-center">
           <span className="keycap relative !h-14 !w-14 shrink-0 rounded-full font-display text-xl font-bold md:mx-auto">{s.n}</span>
           <div className="md:mt-4">
+            <ProcessIcon name={s.k as "discover"} className="lazy-art mb-1 h-16 w-16 md:mx-auto" />
             <h3 className="text-xl">{s.t}</h3>
             <p className="mt-1 text-[0.95rem] text-muted">{s.d}</p>
           </div>

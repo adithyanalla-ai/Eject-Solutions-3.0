@@ -24,6 +24,8 @@ export const site = {
   hours: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:30", closes: "18:30" },
   mapsQuery: "Eject Solutions Kukatpally Hyderabad 500072",
   sameAs: [] as string[], // add LinkedIn / GitHub / X profile URLs once confirmed
+  // [[CONFIRM]] what "OPEN COLABS" should link to. Set NEXT_PUBLIC_COLABS_URL; defaults to the contact page.
+  colabs: process.env.NEXT_PUBLIC_COLABS_URL ?? "/contact",
   ga4: process.env.NEXT_PUBLIC_GA4_ID ?? "",
   gscVerification: process.env.NEXT_PUBLIC_GSC_VERIFICATION ?? "",
   bingVerification: process.env.NEXT_PUBLIC_BING_VERIFICATION ?? "",
@@ -38,13 +40,12 @@ export function whatsappHref(text = "Hi Eject Solutions, I'd like to discuss a p
 }
 
 export const nav = [
+  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/industries", label: "Industries" },
-  { href: "/case-studies", label: "Case studies" },
+  { href: "/case-studies", label: "Projects" },
+  { href: "/contact", label: "Contact" },
   { href: "/blog", label: "Blog" },
   { href: "/news", label: "News" },
-  { href: "/about", label: "About" },
-  { href: "/careers", label: "Careers" },
 ];
 
 /** lastmod for hand-written pages (ISO dates). Bump when copy changes. */

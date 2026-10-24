@@ -15,7 +15,7 @@ export function Logo() {
         <rect width="32" height="32" rx="9" fill="url(#lg)" />
         <path d="M9 11h14M9 16h9M9 21h14" stroke="#0a0a0a" strokeWidth="2.6" strokeLinecap="round" />
       </svg>
-      <span>Eject<span className="rounded-sm bg-[#facc15] px-[3px] ml-px text-[#0a0a0a]">.</span></span>
+      <span className="tracking-[0.02em]">EJECT<span className="ml-px inline-block h-[0.42em] w-[0.42em] rounded-[2px] bg-[#facc15] align-baseline shadow-[0_0_0_1px_rgba(10,10,10,.6),0_0_8px_rgba(250,204,21,.7)]" aria-hidden="true" /><span className="sr-only">.</span></span>
     </Link>
   );
 }
@@ -32,7 +32,7 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-3">
           <PaletteButton />
           <ThemeToggle />
-          <Link href="/contact" className="btn btn-primary hidden sm:inline-flex" data-track="cta_click" data-track-label="header-book">Book a consultation</Link>
+          <Link href="/contact" className="btn btn-primary hidden sm:inline-flex tracking-[0.12em]" data-track="cta_click" data-track-label="header-enquiries">ENQUIRIES <span aria-hidden="true">↗</span></Link>
           {/* No-JS frosted drawer */}
           <details className="group lg:hidden">
             <summary className="btn btn-ghost !px-3 list-none cursor-pointer" aria-label="Menu">
@@ -41,7 +41,7 @@ export default function Header() {
             </summary>
             <nav aria-label="Mobile" className="frost absolute right-3 top-[72px] w-[min(18rem,calc(100vw-1.5rem))] p-2 !rounded-2xl">
               <NavLinks items={nav} mobile />
-              <Link href="/contact" className="btn btn-primary mt-2 w-full" data-track="cta_click" data-track-label="mobile-menu-book">Book a consultation</Link>
+              <Link href="/contact" className="btn btn-primary mt-2 w-full tracking-[0.12em]" data-track="cta_click" data-track-label="mobile-menu-enquiries">ENQUIRIES <span aria-hidden="true">↗</span></Link>
             </nav>
           </details>
         </div>

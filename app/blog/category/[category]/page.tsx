@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import Link from "next/link";
 import PostCard from "@/components/PostCard";
 import Cta from "@/components/Cta";
+import EmptyState from "@/components/EmptyState";
 import { blogPosts } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 
@@ -41,7 +42,7 @@ export default async function Category({ params }: { params: Promise<{ category:
         <h1 className="text-4xl sm:text-5xl">{c.name} guides</h1>
         <p className="mt-4 max-w-2xl text-lg text-muted">{c.blurb}</p>
         {posts.length === 0 ? (
-          <p className="mt-10 text-muted">New {c.name.toLowerCase()} guides are on the way.</p>
+          <EmptyState title="Nothing here yet">New {c.name.toLowerCase()} guides are on the way. Subscribe to the digest to get them first.</EmptyState>
         ) : (
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{posts.map((p) => (<PostCard key={p.slug} post={p} kind="blog" />))}</div>
         )}

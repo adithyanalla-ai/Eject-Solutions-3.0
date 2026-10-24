@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import EmptyState from "@/components/EmptyState";
 
 type Item = { t: string; u: string; k: string; d: string };
 
@@ -24,8 +25,9 @@ export default function SearchClient() {
             <p className="text-muted">{r.d}</p>
           </li>
         ))}
-        {terms.length > 0 && results.length === 0 && <li className="text-muted">No results for “{q}”.</li>}
+        
       </ul>
+      {terms.length > 0 && results.length === 0 && <EmptyState title="No results">Nothing matched “{q}”. Try “VAPT”, “RAG” or “DPDP”.</EmptyState>}
     </div>
   );
 }

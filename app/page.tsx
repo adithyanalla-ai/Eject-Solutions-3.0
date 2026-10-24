@@ -13,7 +13,8 @@ import Cta from "@/components/Cta";
 import Icon from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
 import NewsletterForm from "@/components/NewsletterForm";
-import { blogPosts, fmtDate, industries, newsItems, services } from "@/lib/content";
+import Illustration from "@/components/illustrations/Illustration";
+import { blogPosts, fmtDate, industries, newsItems, pillars, subServices } from "@/lib/content";
 import { localBusinessLd, organizationLd, websiteLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { whatsappHref } from "@/lib/site";
@@ -27,14 +28,8 @@ export const metadata: Metadata = buildMetadata({
   path: "/",
 });
 
-const pillars = [
-  { k: "Build", t: "Product engineering", d: "Web, mobile, APIs and cloud, shipped by engineers who also think like attackers.", href: "/services/custom-software-development", icon: "code" },
-  { k: "Secure", t: "Security you can verify", d: "VAPT, secure code review, AI/LLM testing and monitoring, with reproducible evidence.", href: "/services/vapt-penetration-testing", icon: "shield" },
-  { k: "Automate", t: "AI that does real work", d: "RAG assistants and agents wired into your systems, with guardrails and evaluation.", href: "/services/ai-agents-rag-assistants", icon: "bot" },
-];
-
 export default function Home() {
-  const svc = services();
+  const svc = pillars();
   const posts = blogPosts().slice(0, 3);
   const news = newsItems().slice(0, 3);
   const ind = industries();
@@ -44,7 +39,7 @@ export default function Home() {
       <JsonLd data={[organizationLd(), websiteLd(), localBusinessLd()]} />
 
       <section className="relative">
-        <div className="container-page grid items-center gap-10 py-14 sm:py-20 lg:grid-cols-[1.15fr_1fr]">
+        <div className="container-page grid items-center gap-6 py-10 sm:py-16 lg:grid-cols-[1fr_1.05fr]">
           <div>
             <p className="eyebrow">Hyderabad · Software · Security · AI</p>
             <h1 className="mt-4 text-4xl font-bold sm:text-6xl">
@@ -60,7 +55,10 @@ export default function Home() {
               <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className="btn btn-ghost" data-track="cta_click" data-track-label="hero-whatsapp"><Icon name="whatsapp" size={18} /> WhatsApp</a>
             </div>
           </div>
-          <HeroConsole items={headlines} />
+          <div className="relative">
+            <Illustration name="hero" className="mx-auto h-auto w-full max-w-[520px]" />
+            <div className="relative z-10 -mt-4 sm:-mt-6 sm:ml-auto sm:w-[92%]"><HeroConsole items={headlines} /></div>
+          </div>
         </div>
       </section>
 
@@ -84,31 +82,12 @@ export default function Home() {
       <TrustStrip />
       {/* [[CONFIRM: trust pills (certifications/partners) appear once added to content/trust.json]] */}
 
-      <section className="section" aria-labelledby="pillars-h">
-        <div className="container-page">
-          <p className="eyebrow">One roof</p>
-          <h2 id="pillars-h" className="mt-3 max-w-2xl text-3xl sm:text-4xl">Three disciplines that usually live in three different vendors</h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {pillars.map((p) => (
-              <article key={p.k} className="panel lift reveal p-6">
-                <span className="keycap mb-4"><Icon name={p.icon} /></span>
-                <p className="font-mono text-sm text-primary">{p.k}</p>
-                <h3 className="mt-1 text-2xl"><Link href={p.href} className="after:absolute after:inset-0 after:rounded-2xl">{p.t}</Link></h3>
-                <p className="mt-3 text-muted">{p.d}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Divider />
-
       <section className="section" aria-labelledby="services-h">
         <div className="container-page">
           <p className="eyebrow">Services</p>
-          <h2 id="services-h" className="mt-3 max-w-2xl text-3xl sm:text-4xl">Specific services, not a vague “IT solutions” menu</h2>
+          <h2 id="services-h" className="mt-3 max-w-2xl text-3xl sm:text-4xl">Six pillars, each with its own breakdown</h2>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {svc.map((s, i) => (<ServiceCard key={s.slug} s={s} large={i === 0 || i === 3} />))}
+            {svc.map((s, i) => (<ServiceCard key={s.slug} s={s} subs={subServices(s.slug)} large={i === 0 || i === 3 || i === 5} />))}
           </div>
         </div>
       </section>
@@ -165,9 +144,12 @@ export default function Home() {
       <section className="section pt-0" aria-labelledby="nl-h">
         <div className="container-page">
           <div className="panel panel-lg grid items-center gap-6 p-8 sm:p-10 md:grid-cols-2">
-            <div>
+            <div className="flex items-center gap-4">
+              <Illustration name="mail" className="lazy-art hidden h-auto w-40 shrink-0 sm:block" />
+              <div>
               <h2 id="nl-h" className="text-2xl sm:text-3xl">Get the weekly security, AI and hiring digest</h2>
               <p className="mt-2 text-muted">Short, sourced notes on what changed and what it means for Indian businesses. Double opt-in, no spam.</p>
+              </div>
             </div>
             <NewsletterForm />
           </div>

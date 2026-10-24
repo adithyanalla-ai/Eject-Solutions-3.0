@@ -1,11 +1,15 @@
 import Link from "next/link";
 import type { Entry } from "@/lib/content";
 import { fmtDate } from "@/lib/content";
+import { CoverScene } from "./illustrations/scenes";
 
 export default function PostCard({ post, kind }: { post: Entry; kind: "blog" | "news" }) {
   const updated = post.updated && post.updated !== post.date ? post.updated : null;
   return (
     <article className="panel lift flex flex-col p-6">
+      <div className="lazy-art mb-4 overflow-hidden rounded-xl" style={{ containIntrinsicSize: "auto 150px" }}>
+        <CoverScene category={post.category} className="h-auto w-full" />
+      </div>
       <div className="flex flex-wrap items-center gap-2">
         <span className="chip">{post.category ?? (kind === "news" ? "News" : "Guide")}</span>
         <span className="text-xs text-muted">{kind === "blog" ? `${post.minutes} min read` : "Short read"}</span>

@@ -8,7 +8,7 @@ Next.js 15 (App Router) + TypeScript + Tailwind CSS. Content is MDX in `/content
 
 ```
 app/                 routes (App Router). Pages are static; only /api/* are dynamic
-  services/[slug]    9 service pages (MDX in content/services)
+  services/[slug]    13 service pages: 6 pillars (frontmatter `number: 1..6`) + 7 sub-services (`parent: <pillar slug>`)
   industries/[slug]  4 industry pages
   blog/ news/        index + [slug] (+ blog/category/[category]), ISR revalidate 1h
   case-studies/      template (placeholder is noindex + excluded from sitemap)
@@ -49,6 +49,7 @@ See `.env.example` (commented). Summary:
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin (default `https://ejectsolutions.com`) |
 | `NEXT_PUBLIC_CONTACT_EMAIL`, `NEXT_PUBLIC_PHONE`, `NEXT_PUBLIC_WHATSAPP_NUMBER` | NAP + WhatsApp links. Phone is omitted everywhere until set |
 | `NEXT_PUBLIC_GA4_ID` | Enables GA4 **and** the cookie banner. GA4 loads only after "Accept" |
+| `NEXT_PUBLIC_COLABS_URL` | Destination of the floating "OPEN COLABS ↗" pill (defaults to `/contact`: **confirm**) |
 | `NEXT_PUBLIC_GSC_VERIFICATION`, `NEXT_PUBLIC_BING_VERIFICATION` | Search engine verification meta tags |
 | `RESEND_API_KEY`, `MAIL_FROM`, `CONTACT_TO_EMAIL` | Contact form + newsletter emails (verify the sending domain in Resend) |
 | `RESEND_AUDIENCE_ID` | Optional: confirmed subscribers are added to this Resend audience; otherwise the confirmed address is emailed to `CONTACT_TO_EMAIL` |
@@ -143,3 +144,26 @@ CI (`.github/workflows/ci.yml`) runs type check, content check, build and the SE
 - `docs/seo-checklist.md`: implemented vs manual (Search Console, Google Business Profile, backlinks)
 - `docs/lighthouse-report.md`: scores, fixes applied, accessibility notes
 - `docs/content-calendar.md`: 30 + 30 plan
+
+## Services structure
+
+Six numbered pillars, each an indexable 700+ word page with FAQ and CTA, plus sub-services nested under them:
+
+| # | Pillar | Sub-services |
+|---|---|---|
+| 01 | Custom Development | Mobile App Development, Cloud-Native & API Engineering |
+| 02 | Cyber Security | AI Security & Governance, Managed Threat Monitoring & Incident Response, Compliance Readiness |
+| 03 | HR Solutions | AI-Assisted Recruitment & IT Staffing |
+| 04 | Content Marketing | AI Marketing Automation |
+| 05 | AI Solutions | (none yet) |
+| 06 | Training & Internships | (none yet) |
+
+Card copy and tags come from frontmatter (`cardTitle`, `card`, `tags`, `number`, `illustration`), so editing a card means editing the MDX file. Existing URLs were kept (e.g. `/services/vapt-penetration-testing` is the Cyber Security pillar); legacy paths redirect via `redirects.json`.
+
+## Navigation, ticker and floating buttons
+
+Top nav: Home, Services, Projects (the case-studies section), Contact, Blog, News; **ENQUIRIES ↗** is the primary button. The slim frosted ticker at the top (Click to connect on WhatsApp / Network with innovators / Join our community) links to WhatsApp (`NEXT_PUBLIC_WHATSAPP_NUMBER`), pauses on button, hover or focus, and becomes a static line under `prefers-reduced-motion`. Floating raised pills: **OPEN COLABS ↗** (bottom-left) and **Book a consultation** (bottom-right, hidden on `/contact`).
+
+## Illustrations
+
+Original isometric SVG scenes in `components/illustrations`, driven by `--il-*` colour tokens (light + Frosted Night). Use `<Illustration name="shield" />`. Style guide: `/design/illustrations` (noindex, disallowed in robots, not in the sitemap). How to add a scene: `components/illustrations/README.md`. `npm run illos` enforces the 15 KB / accessibility rules and regenerates the flat cover SVGs used in OG images.

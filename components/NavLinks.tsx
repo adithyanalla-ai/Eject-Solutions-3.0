@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 
 export default function NavLinks({ items, mobile = false }: { items: { href: string; label: string }[]; mobile?: boolean }) {
   const path = usePathname();
-  const active = (href: string) => path === href || path.startsWith(href + "/");
+  const active = (href: string) => (href === "/" ? path === "/" : path === href || path.startsWith(href + "/"));
   return (
     <ul className={mobile ? "space-y-1" : "flex items-center gap-1"}>
       {items.map((n) => (

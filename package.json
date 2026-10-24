@@ -11,10 +11,10 @@
     "content:news": "node scripts/generate-drafts.mjs news",
     "content:blog": "node scripts/generate-drafts.mjs blog",
     "lighthouse": "node scripts/lighthouse.mjs",
-    "prebuild": "node scripts/check-content.mjs",
+    "prebuild": "node scripts/check-content.mjs && npm run illos --silent",
     "check:content": "node scripts/check-content.mjs",
-    "covers": "node scripts/make-covers.mjs",
-    "calendar": "node scripts/render-calendar.mjs"
+    "calendar": "node scripts/render-calendar.mjs",
+    "illos": "tsx --tsconfig tsconfig.scripts.json scripts/build-illustrations.tsx"
   },
   "engines": {
     "node": ">=20"
@@ -44,7 +44,9 @@
     "lighthouse": "^13.5.0",
     "playwright-core": "^1.64.1",
     "postcss": "^8.5.31",
+    "svgo": "^4.1.0",
     "tailwindcss": "^3.4.19",
+    "tsx": "^4.23.15",
     "typescript": "5.9"
   }
 }

@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import Script from "next/script";
 import { track } from "@/lib/analytics";
+import { SuccessMark } from "./illustrations/scenes";
 
 type State = { status: "idle" | "sending" | "ok" | "error"; message?: string; errors?: Record<string, string> };
 
@@ -48,8 +49,9 @@ export default function ContactForm({ turnstileKey }: { turnstileKey: string }) 
 
   if (state.status === "ok") {
     return (
-      <div role="status" className="panel p-8">
-        <h2 className="text-2xl">Thanks, message received.</h2>
+      <div role="status" className="panel p-8 text-center">
+        <SuccessMark className="mx-auto h-24 w-24" />
+        <h2 className="mt-2 text-2xl">Thanks, message received.</h2>
         <p className="mt-3 text-muted">We read every enquiry and reply within one working day. If it is urgent, message us on WhatsApp.</p>
       </div>
     );

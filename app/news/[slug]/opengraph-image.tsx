@@ -8,5 +8,5 @@ export const generateStaticParams = () => slugs("news").map((slug) => ({ slug })
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const p = getOne("news", (await params).slug);
-  return renderOg(p?.title ?? "Eject Solutions", `News · ${p?.category ?? "Update"}`);
+  return renderOg(p?.title ?? "Eject Solutions", `News · ${p?.category ?? "Update"}`, p?.category ?? undefined);
 }
